@@ -1881,3 +1881,1317 @@ You may need to update both your build tool settings as well as your IDE.
         users u1_0 
     where
         u1_0.email=?
+2025-11-04 18:16:28 [main] INFO  c.e.bugbounty.BugbountyApplication - Starting BugbountyApplication using Java 21.0.9-ea with PID 822831 (/home/edson/bug-bounty-tcc/backend/target/classes started by edson in /home/edson/bug-bounty-tcc/backend)
+2025-11-04 18:16:28 [main] DEBUG c.e.bugbounty.BugbountyApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-11-04 18:16:28 [main] INFO  c.e.bugbounty.BugbountyApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-04 18:16:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-04 18:16:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 99 ms. Found 3 JPA repository interfaces.
+2025-11-04 18:16:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-04 18:16:31 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-04 18:16:31 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-11-04 18:16:31 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-04 18:16:31 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2969 ms
+2025-11-04 18:16:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-04 18:16:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@703e8050
+2025-11-04 18:16:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-04 18:16:32 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-04 18:16:32 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-11-04 18:16:32 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-04 18:16:33 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-04 18:16:33 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-04 18:16:33 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@7a117dc2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1d444652)
+2025-11-04 18:16:33 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@669c2b07) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1b1ea1d9)
+2025-11-04 18:16:34 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-04 18:16:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 18:16:35 [main] INFO  c.e.b.service.VulnerabilityService - VulnerabilityService inicializado com 130 testes
+2025-11-04 18:16:35 [main] INFO  c.e.b.c.VulnerabilityController - DOMÍNIOS PERMITIDOS: [localhost, 127.0.0.1, web-security-academy.net, oastify.com, interactsh.com, dvwa.co.uk, target.com, app.bugbounty.com]
+2025-11-04 18:16:35 [main] INFO  c.example.bugbounty.config.AppConfig - ✅ Registrando WebSocket no endpoint /ws
+2025-11-04 18:16:35 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-04 18:16:36 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@64ba5a71, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72b689f6, org.springframework.security.web.context.SecurityContextHolderFilter@7f72855d, org.springframework.security.web.header.HeaderWriterFilter@5c960f64, org.springframework.web.filter.CorsFilter@2286dfcd, org.springframework.security.web.authentication.logout.LogoutFilter@6b578779, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f119b55, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64dcfd09, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4557723a, org.springframework.security.web.access.ExceptionTranslationFilter@42eaf47f, org.springframework.security.web.access.intercept.AuthorizationFilter@31f4fdc5]
+2025-11-04 18:16:36 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-11-04 18:16:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 18:16:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-04 18:16:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-04 18:16:36 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-04 18:16:36 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:291)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:471)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:260)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:981)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.example.bugbounty.BugbountyApplication.main(BugbountyApplication.java:9)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:249)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:44)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:288)
+	... 13 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:235)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:306)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:234)
+	... 15 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1047)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:232)
+	... 17 common frames omitted
+Caused by: java.net.BindException: Endereço já em uso
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:239)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:194)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1307)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1393)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1044)
+	... 19 common frames omitted
+2025-11-04 18:21:20 [main] INFO  c.e.bugbounty.BugbountyApplication - Starting BugbountyApplication using Java 21.0.9-ea with PID 831098 (/home/edson/bug-bounty-tcc/backend/target/classes started by edson in /home/edson/bug-bounty-tcc/backend)
+2025-11-04 18:21:20 [main] DEBUG c.e.bugbounty.BugbountyApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-11-04 18:21:20 [main] INFO  c.e.bugbounty.BugbountyApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-04 18:21:21 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-04 18:21:21 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 100 ms. Found 3 JPA repository interfaces.
+2025-11-04 18:21:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-04 18:21:22 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-04 18:21:22 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-11-04 18:21:22 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-04 18:21:22 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2023 ms
+2025-11-04 18:21:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-04 18:21:22 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7741ae1b
+2025-11-04 18:21:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-04 18:21:23 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-04 18:21:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-11-04 18:21:23 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-04 18:21:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-04 18:21:23 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-04 18:21:23 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1b1ea1d9) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@6a902015)
+2025-11-04 18:21:23 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@55d99dc3) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521a506c)
+2025-11-04 18:21:25 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-04 18:21:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 18:21:26 [main] INFO  c.e.b.service.VulnerabilityService - VulnerabilityService inicializado com 130 testes
+2025-11-04 18:21:26 [main] INFO  c.e.b.c.VulnerabilityController - DOMÍNIOS PERMITIDOS: [localhost, 127.0.0.1, web-security-academy.net, oastify.com, interactsh.com, dvwa.co.uk, target.com, app.bugbounty.com]
+2025-11-04 18:21:26 [main] INFO  c.example.bugbounty.config.AppConfig - ✅ Registrando WebSocket no endpoint /ws
+2025-11-04 18:21:26 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-04 18:21:27 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6a577564, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67915454, org.springframework.security.web.context.SecurityContextHolderFilter@47a68e3f, org.springframework.security.web.header.HeaderWriterFilter@6d2693f, org.springframework.web.filter.CorsFilter@18876fa9, org.springframework.security.web.authentication.logout.LogoutFilter@68a7bc12, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33ef393a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d18401b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a110e7d, org.springframework.security.web.access.ExceptionTranslationFilter@64dcfd09, org.springframework.security.web.access.intercept.AuthorizationFilter@35b70f9d]
+2025-11-04 18:21:27 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-11-04 18:21:27 [main] INFO  c.e.bugbounty.BugbountyApplication - Started BugbountyApplication in 8.336 seconds (process running for 8.731)
+2025-11-04 18:22:43 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-04 18:22:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-04 18:22:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2025-11-04 18:22:44 [http-nio-8080-exec-4] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 18:22:44 [http-nio-8080-exec-3] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 18:22:44 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:22:44 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:22:45 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:22:45 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:22:53 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:22:53 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2025-11-04 18:25:35 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 18:25:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-04 18:25:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-04 18:28:40 [main] INFO  c.e.bugbounty.BugbountyApplication - Starting BugbountyApplication using Java 21.0.9-ea with PID 843868 (/home/edson/bug-bounty-tcc/backend/target/classes started by edson in /home/edson/bug-bounty-tcc/backend)
+2025-11-04 18:28:40 [main] DEBUG c.e.bugbounty.BugbountyApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-11-04 18:28:40 [main] INFO  c.e.bugbounty.BugbountyApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-04 18:28:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-04 18:28:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78 ms. Found 3 JPA repository interfaces.
+2025-11-04 18:28:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-04 18:28:42 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-04 18:28:42 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-11-04 18:28:42 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-04 18:28:42 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1915 ms
+2025-11-04 18:28:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-04 18:28:42 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e3db14
+2025-11-04 18:28:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-04 18:28:42 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-04 18:28:43 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-11-04 18:28:43 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-04 18:28:43 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-04 18:28:43 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-04 18:28:43 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@5f3f57ff) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@6200b644)
+2025-11-04 18:28:43 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@d4ecdb0) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5fb44964)
+2025-11-04 18:28:44 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-04 18:28:44 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 18:28:45 [main] INFO  c.e.b.service.VulnerabilityService - VulnerabilityService inicializado com 130 testes
+2025-11-04 18:28:45 [main] INFO  c.e.b.c.VulnerabilityController - DOMÍNIOS PERMITIDOS: [localhost, 127.0.0.1, web-security-academy.net, oastify.com, interactsh.com, dvwa.co.uk, target.com, app.bugbounty.com]
+2025-11-04 18:28:45 [main] INFO  c.example.bugbounty.config.AppConfig - ✅ Registrando WebSocket no endpoint /ws
+2025-11-04 18:28:45 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-04 18:28:45 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72b689f6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2286dfcd, org.springframework.security.web.context.SecurityContextHolderFilter@13f358f8, org.springframework.security.web.header.HeaderWriterFilter@2f307fcc, org.springframework.web.filter.CorsFilter@4557723a, org.springframework.security.web.authentication.logout.LogoutFilter@4e797a39, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64dcfd09, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fefd4a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7308d133, org.springframework.security.web.access.ExceptionTranslationFilter@312e8eaf, org.springframework.security.web.access.intercept.AuthorizationFilter@64e680c5]
+2025-11-04 18:28:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-11-04 18:28:46 [main] INFO  c.e.bugbounty.BugbountyApplication - Started BugbountyApplication in 6.492 seconds (process running for 7.034)
+2025-11-04 18:29:03 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-04 18:29:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-04 18:29:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-04 18:29:05 [http-nio-8080-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 461 ms
+2025-11-04 18:38:58 [http-nio-8080-exec-6] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 18:38:58 [http-nio-8080-exec-4] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 18:38:59 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:38:59 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:38:59 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:38:59 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 18:49:50 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 18:49:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-04 18:49:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-04 18:50:06 [main] INFO  c.e.bugbounty.BugbountyApplication - Starting BugbountyApplication using Java 21.0.9-ea with PID 877998 (/home/edson/bug-bounty-tcc/backend/target/classes started by edson in /home/edson/bug-bounty-tcc/backend)
+2025-11-04 18:50:06 [main] DEBUG c.e.bugbounty.BugbountyApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-11-04 18:50:06 [main] INFO  c.e.bugbounty.BugbountyApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-04 18:50:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-04 18:50:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 3 JPA repository interfaces.
+2025-11-04 18:50:08 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-04 18:50:08 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-04 18:50:08 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-11-04 18:50:09 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-04 18:50:09 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2349 ms
+2025-11-04 18:50:09 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-04 18:50:09 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7b9e25bd
+2025-11-04 18:50:09 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-04 18:50:09 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-04 18:50:10 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-11-04 18:50:10 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-04 18:50:10 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-04 18:50:10 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-04 18:50:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@bcfe29c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@37f71c05)
+2025-11-04 18:50:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5bd3ca3c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2dd8a273)
+2025-11-04 18:50:11 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-04 18:50:11 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 18:50:12 [main] INFO  c.e.b.service.VulnerabilityService - VulnerabilityService inicializado com 130 testes
+2025-11-04 18:50:12 [main] INFO  c.e.b.c.VulnerabilityController - DOMÍNIOS PERMITIDOS: [localhost, 127.0.0.1, web-security-academy.net, oastify.com, interactsh.com, dvwa.co.uk, target.com, app.bugbounty.com]
+2025-11-04 18:50:12 [main] INFO  c.example.bugbounty.config.AppConfig - ✅ Registrando WebSocket no endpoint /ws
+2025-11-04 18:50:12 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-04 18:50:12 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@66e27ac9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@453bbb9b, org.springframework.security.web.context.SecurityContextHolderFilter@8e100e7, org.springframework.security.web.header.HeaderWriterFilter@33ef393a, org.springframework.web.filter.CorsFilter@170b27a7, org.springframework.security.web.authentication.logout.LogoutFilter@1dcf5f38, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d3a56ea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@141874c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@79392584, org.springframework.security.web.access.ExceptionTranslationFilter@47a68e3f, org.springframework.security.web.access.intercept.AuthorizationFilter@18876fa9]
+2025-11-04 18:50:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-11-04 18:50:13 [main] INFO  c.e.bugbounty.BugbountyApplication - Started BugbountyApplication in 7.338 seconds (process running for 7.851)
+2025-11-04 18:52:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-04 18:52:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-04 18:52:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-11-04 18:52:35 [http-nio-8080-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 634 ms
+2025-11-04 19:04:39 [http-nio-8080-exec-7] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 19:04:39 [http-nio-8080-exec-6] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 19:04:40 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:04:40 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:04:40 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:04:40 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:07:49 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:07:59 [http-nio-8080-exec-6] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 19:07:59 [http-nio-8080-exec-8] DEBUG c.e.b.s.CustomUserDetailsService - 🟡 Carregando UserDetails para: as
+2025-11-04 19:07:59 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:07:59 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:07:59 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:07:59 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-04 19:07:59 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:08:00 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:08:48 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:08:50 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:19 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:19 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:19 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:19 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:19 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:20 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:20 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:20 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:20 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:21 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:25 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:25 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:26 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:26 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:26 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:26 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:27 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:27 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:27 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:27 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:41 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:41 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:41 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:42 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:43 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:43 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:43 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:43 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:43 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:43 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:43 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:44 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:44 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:45 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:45 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:46 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:46 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:46 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:49 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:49 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:49 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:50 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:50 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:50 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:51 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:51 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:51 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:09:52 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:09 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:10 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:11 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:10:27 [http-nio-8080-exec-10] DEBUG c.e.b.c.VulnerabilityController - Validando: https://shopee.com → Host: shopee.com → Sem porta: shopee.com
+2025-11-04 19:10:27 [http-nio-8080-exec-10] WARN  c.e.b.c.VulnerabilityController - 403 FORBIDDEN: URL fora do escopo → https://shopee.com
+2025-11-04 19:10:54 [http-nio-8080-exec-3] DEBUG c.e.b.c.VulnerabilityController - Validando: http://www.dvwa.co.uk → Host: www.dvwa.co.uk → Sem porta: www.dvwa.co.uk
+2025-11-04 19:10:54 [http-nio-8080-exec-3] INFO  c.e.b.c.VulnerabilityController - Testando: ssrf → http://www.dvwa.co.uk
+2025-11-04 19:10:54 [http-nio-8080-exec-3] INFO  c.e.b.service.VulnerabilityService - Testando: ssrf em http://www.dvwa.co.uk
+2025-11-04 19:10:54 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vulnerability
+        (category, created_at, http_status, job_id, name, payload, responseDetails, result, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-04 19:10:54 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:11:03 [http-nio-8080-exec-8] DEBUG c.e.b.c.VulnerabilityController - Validando: http://www.dvwa.co.uk → Host: www.dvwa.co.uk → Sem porta: www.dvwa.co.uk
+2025-11-04 19:11:03 [http-nio-8080-exec-8] INFO  c.e.b.c.VulnerabilityController - Testando: template → http://www.dvwa.co.uk
+2025-11-04 19:11:03 [http-nio-8080-exec-8] INFO  c.e.b.service.VulnerabilityService - Testando: template em http://www.dvwa.co.uk
+2025-11-04 19:11:03 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vulnerability
+        (category, created_at, http_status, job_id, name, payload, responseDetails, result, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-04 19:11:03 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:11:10 [http-nio-8080-exec-5] DEBUG c.e.b.c.VulnerabilityController - Validando: http://www.dvwa.co.uk → Host: www.dvwa.co.uk → Sem porta: www.dvwa.co.uk
+2025-11-04 19:11:10 [http-nio-8080-exec-5] INFO  c.e.b.c.VulnerabilityController - Testando: smuggling → http://www.dvwa.co.uk
+2025-11-04 19:11:10 [http-nio-8080-exec-5] INFO  c.e.b.service.VulnerabilityService - Testando: smuggling em http://www.dvwa.co.uk
+2025-11-04 19:11:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vulnerability
+        (category, created_at, http_status, job_id, name, payload, responseDetails, result, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-04 19:11:10 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:11:15 [http-nio-8080-exec-7] DEBUG c.e.b.c.VulnerabilityController - Validando: http://www.dvwa.co.uk → Host: www.dvwa.co.uk → Sem porta: www.dvwa.co.uk
+2025-11-04 19:11:15 [http-nio-8080-exec-7] INFO  c.e.b.c.VulnerabilityController - Testando: xxe → http://www.dvwa.co.uk
+2025-11-04 19:11:15 [http-nio-8080-exec-7] INFO  c.e.b.service.VulnerabilityService - Testando: xxe em http://www.dvwa.co.uk
+2025-11-04 19:11:15 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vulnerability
+        (category, created_at, http_status, job_id, name, payload, responseDetails, result, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-04 19:11:15 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.reportPath,
+        j1_0.status,
+        j1_0.targetUrl 
+    from
+        jobs j1_0
+2025-11-04 19:12:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-04 19:12:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-04 19:12:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

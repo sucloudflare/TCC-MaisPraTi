@@ -1,16 +1,26 @@
 // src/api/vulnerabilities.js
-import api from "./client";
+import axios from './axios'; // Axios já configurado com baseURL
 
-export const testVulnerability = (targetUrl, vulnerabilityType, payload = "") =>
-  api.post("/vulnerabilities/test", { targetUrl, vulnerabilityType, payload });
+// ---------------- Jobs ----------------
+export const getJobs = async (filter = {}) => {
+  // GET /jobs, você pode adicionar query params se precisar filtrar
+  return await axios.get('/jobs', { params: filter });
+};
 
-export const testBatch = (requests) => api.post("/vulnerabilities/test/batch", requests);
+export const testVulnerability = async (targetUrl, vulnerabilityType) => {
+  return await axios.post('/vulnerabilities/test', { targetUrl, vulnerabilityType });
+};
 
-export const getVulnerabilities = (filters = {}) =>
-  api.get("/vulnerabilities", { params: filters });
+export const testBatch = async (requests) => {
+  // requests: [{ targetUrl, vulnerabilityType }]
+  return await axios.post('/vulnerabilities/test/batch', requests);
+};
 
-export const getVulnerabilitiesByJob = (jobId) =>
-  api.get(`/vulnerabilities/job/${jobId}`);
+export const exportReport = async (jobId) => {
+  return await axios.get(`/jobs/${jobId}`, { responseType: 'blob' });
+};
 
-export const exportReport = (jobId) =>
-  api.get(`/vulnerabilities/export/${jobId}`, { responseType: "blob" });
+// Opcional: cancelar job
+export const cancelJob = async (jobId) => {
+  return await axios.put(`/jobs/${jobId}/status`, { status: 'CANCELLED' });
+};

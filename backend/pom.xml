@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>Bug Bounty TCC</name>
-    <description>API completa de Bug Bounty com 15 exploits, PostgreSQL, JWT, PDF, Swagger</description>
+    <description>API completa de Bug Bounty com PostgreSQL, JWT, PDF, Swagger</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -23,11 +23,10 @@
         <java.version>21</java.version>
         <jjwt.version>0.11.5</jjwt.version>
         <itext.version>7.2.5</itext.version>
-        <springdoc.version>2.5.0</springdoc.version>
+        <springdoc.version>2.6.0</springdoc.version>
     </properties>
 
     <dependencies>
-
         <!-- SPRING BOOT STARTERS -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,6 +44,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
+
+        <!-- WebSocket -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
@@ -127,7 +128,6 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
