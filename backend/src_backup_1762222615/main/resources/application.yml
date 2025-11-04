@@ -1,0 +1,97 @@
+# ================================
+# ⚙️ CONFIGURAÇÃO COMPLETA DO BACKEND
+# ================================
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  tomcat:
+    connection-timeout: 5000
+    threads:
+      max: 200
+      min-spare: 10
+
+spring:
+  application:
+    name: bugbounty-tcc
+
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/juizofinal
+    username: tcc_user
+    password: 0000
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+# ================================
+# 🧩 CONFIGURAÇÕES PERSONALIZADAS DO BUGBOUNTY
+# ================================
+bugbounty:
+  user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+  request-delay-ms: 1200
+  connect-timeout-ms: 10000
+  read-timeout-ms: 15000
+  allowed-domains:
+    - localhost
+    - web-security-academy.net
+    - oastify.com
+    - interactsh.com
+    - dvwa.co.uk
+    - target.com
+    - app.bugbounty.com
+
+# ================================
+# 🔐 CONFIGURAÇÕES JWT
+# ================================
+jwt:
+  secret: c29tZV9zdXBlcl9zZWNyZXRfS0VZX19MT05HX0VOT1VHSF9GT1JfSFMyNTY=
+  expiration: 86400000  # 24 horas
+  issuer: bugbounty-tcc
+
+# ================================
+# 🪵 LOGGING DETALHADO
+# ================================
+logging:
+  level:
+    root: INFO
+    com.example.bugbounty: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/bugbounty.log
+
+# ================================
+# 📊 ACTUATOR E MONITORAMENTO
+# ================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      show-details: always

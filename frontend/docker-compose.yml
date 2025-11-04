@@ -1,0 +1,59 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_lab
+    environment:
+      POSTGRES_USER: bugbounty
+      POSTGRES_PASSWORD: bugbounty123
+      POSTGRES_DB: bugbounty_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: redis_lab
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend_lab
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bugbounty_db
+      SPRING_DATASOURCE_USERNAME: bugbounty
+      SPRING_DATASOURCE_PASSWORD: bugbounty123
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    container_name: juice_lab
+    ports:
+      - "3000:3000"
+
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    container_name: worker_lab
+    depends_on:
+      - juice-shop
+      - backend
+    environment:
+      - TARGET_URL=http://juice_shop:3000
+    # não expomos portas do worker; ele executa jobs internamente
+
+volumes:
+  postgres_data:

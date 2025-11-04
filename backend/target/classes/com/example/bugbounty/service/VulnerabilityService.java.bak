@@ -1,0 +1,333 @@
+package com.example.bugbounty.service;
+
+import com.example.bugbounty.entity.Job;
+import com.example.bugbounty.entity.Vulnerability;
+import com.example.bugbounty.model.TestRequest;
+import com.example.bugbounty.repository.JobRepository;
+import com.example.bugbounty.repository.VulnerabilityRepository;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import org.owasp.encoder.Encode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import jakarta.annotation.PostConstruct;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.function.BiFunction;
+import java.util.stream.IntStream;
+
+@Service
+public class VulnerabilityService {
+
+    private static final Logger logger = LoggerFactory.getLogger(VulnerabilityService.class);
+
+    @Autowired
+    private VulnerabilityRepository vulnerabilityRepository;
+
+    @Autowired
+    private JobRepository jobRepository;
+
+    private final Map<String, BiFunction<String, String, Vulnerability>> tests = new HashMap<>();
+
+    public VulnerabilityService() {
+        // Registra funções de teste
+        tests.put("XXE with Out-of-Band Exfiltration", this::testXXEOutOfBand);
+        tests.put("Blind SSRF with DNS Exfiltration", this::testBlindSSRF);
+        tests.put("WebSocket Hijacking with Session Stealing", this::testWebSocketHijacking);
+        tests.put("Template Injection with Sandbox Escape", this::testTemplateInjection);
+        tests.put("Prototype Pollution with Privilege Escalation", this::testPrototypePollution);
+        tests.put("Log Poisoning with Command Execution", this::testLogPoisoning);
+        tests.put("SSRF with Internal Network Scanning", this::testSSRFNetworkScanning);
+        tests.put("XXE with Local File Inclusion", this::testXXELocalFile);
+        tests.put("WebSocket Hijacking with Persistent Backdoor", this::testWebSocketBackdoor);
+        tests.put("GraphQL Injection with Query Chaining", this::testGraphQLInjection);
+        tests.put("JWT Manipulation with Key Confusion Attack", this::testJWTManipulation);
+        tests.put("XXE with RCE Chain", this::testXXERCE);
+        tests.put("SSRF with Cloud Metadata Exploitation", this::testSSRFCloudMetadata);
+        tests.put("DOM-based XSS with Mutation Observer", this::testDOMXSS);
+        tests.put("HTTP Request Smuggling", this::testHTTPRequestSmuggling);
+
+        // 115 exploits default
+        IntStream.rangeClosed(1, 115).forEach(i -> tests.put("Exploit_" + i, this::defaultTest));
+    }
+
+    @PostConstruct
+    public void debugDatabaseSchema() {
+        logger.info("DEBUG: verificando acesso ao repositório de vulnerabilidades...");
+        try {
+            long count = vulnerabilityRepository.count();
+            logger.info("Tabela 'vulnerability' acessível — registros: {}", count);
+        } catch (Exception e) {
+            logger.error("FALHA AO ACESSAR tabela 'vulnerability' — verifique permissões/ddl", e);
+        }
+
+        try {
+            long jobs = jobRepository.count();
+            logger.info("Tabela 'job' acessível — registros: {}", jobs);
+        } catch (Exception e) {
+            logger.error("FALHA AO ACESSAR tabela 'job' — verifique permissões/ddl", e);
+        }
+    }
+
+    public boolean isValidTarget(String url) {
+        logger.debug("Validando URL: {}", url);
+        return true;
+    }
+
+    public Vulnerability testVulnerability(String targetUrl, String vulnerabilityType, String payload) {
+        logger.info("Testando '{}' em {}", vulnerabilityType, targetUrl);
+        BiFunction<String, String, Vulnerability> fn = tests.getOrDefault(vulnerabilityType, this::defaultTest);
+        Vulnerability vulnerability = fn.apply(targetUrl, payload);
+
+        // Preencher campos obrigatórios da entidade antes do save
+        vulnerability.setTargetUrl(targetUrl);
+        vulnerability.setVulnerabilityType(vulnerabilityType);
+        vulnerability.setPayload(payload);
+        vulnerability.setStatus(vulnerability.getStatus() == null ? "PENDING" : vulnerability.getStatus());
+        vulnerability.setName(vulnerability.getName() == null ? vulnerabilityType : vulnerability.getName());
+        vulnerability.setCategory(vulnerability.getCategory() == null ? getCategoryForVulnerability(vulnerabilityType) : vulnerability.getCategory());
+        vulnerability.setSeverity(vulnerability.getSeverity() == null ? getSeverityForVulnerability(vulnerabilityType) : vulnerability.getSeverity());
+        if (vulnerability.getCreatedAt() == null) {
+            vulnerability.setCreatedAt(LocalDateTime.now());
+        }
+
+        try {
+            Vulnerability saved = vulnerabilityRepository.save(vulnerability);
+            logger.info("Vulnerabilidade salva (id={})", saved.getId());
+            return saved;
+        } catch (Exception e) {
+            logger.error("FALHA AO SALVAR vulnerabilidade", e);
+            // Preenche o objeto com erro legível para retorno JSON
+            vulnerability.setResult("ERROR: " + e.getMessage());
+            vulnerability.setResponseDetails(e.getMessage());
+            return vulnerability;
+        }
+    }
+
+    public Job createBatchJob(List<TestRequest> requests) {
+        logger.info("Criando job para batch ({} requisições)", requests.size());
+        Job job = new Job();
+        job.setStatus("PENDING");
+        job.setTargetUrl(requests.get(0).getTargetUrl());
+        job.setCreatedAt(LocalDateTime.now());
+        job = jobRepository.save(job);
+
+        for (TestRequest r : requests) {
+            Vulnerability v = testVulnerability(r.getTargetUrl(), r.getVulnerabilityType(), r.getPayload());
+            v.setJob(job);
+            try {
+                vulnerabilityRepository.save(v);
+            } catch (Exception e) {
+                logger.error("Erro salvando vulnerabilidade do batch", e);
+            }
+        }
+
+        job.setStatus("DONE");
+        String path = generateReportPath(job.getId());
+        generateReport(job.getId());
+        job.setReportPath(path);
+        jobRepository.save(job);
+        return job;
+    }
+
+    public byte[] generateReport(Long jobId) {
+        logger.info("Gerando relatório para job {}", jobId);
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            PdfWriter writer = new PdfWriter(baos);
+            PdfDocument pdf = new PdfDocument(writer);
+            Document document = new Document(pdf);
+
+            document.add(new Paragraph("Relatório de Vulnerabilidades - Job ID: " + jobId));
+
+            List<Vulnerability> list = vulnerabilityRepository.findByJobId(jobId);
+            for (Vulnerability v : list) {
+                document.add(new Paragraph("URL: " + Encode.forHtml(v.getTargetUrl())));
+                document.add(new Paragraph("Vuln: " + Encode.forHtml(v.getVulnerabilityType())));
+                document.add(new Paragraph("Payload: " + Encode.forHtml(v.getPayload())));
+                document.add(new Paragraph("Resultado: " + Encode.forHtml(v.getResult())));
+                document.add(new Paragraph("Detalhes: " + Encode.forHtml(v.getResponseDetails())));
+                document.add(new Paragraph("---"));
+            }
+            document.close();
+
+            String reportPath = generateReportPath(jobId);
+            File file = new File(reportPath);
+            file.getParentFile().mkdirs();
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+                fos.write(baos.toByteArray());
+            }
+
+            Job job = jobRepository.findById(jobId).orElseThrow();
+            job.setReportPath(reportPath);
+            jobRepository.save(job);
+
+            return baos.toByteArray();
+        } catch (Exception e) {
+            logger.error("Erro ao gerar relatório", e);
+            return new byte[0];
+        }
+    }
+
+    private String generateReportPath(Long jobId) {
+        return "reports/report_job_" + jobId + ".pdf";
+    }
+
+    /* ---------- Generic HTTP test helper ---------- */
+    private Vulnerability sendHttpTest(String url, String payload, String method, Map<String, String> headers, String checkString) {
+        Vulnerability vulnerability = new Vulnerability();
+        HttpURLConnection conn = null;
+        try {
+            URI uri = new URI(url);
+            if ("GET".equalsIgnoreCase(method) && payload != null && !payload.isEmpty()) {
+                uri = new URI(url + (url.contains("?") ? "&" : "?") + "input=" + java.net.URLEncoder.encode(payload, StandardCharsets.UTF_8));
+            }
+            conn = (HttpURLConnection) uri.toURL().openConnection();
+            conn.setRequestMethod(method);
+            if (headers != null) headers.forEach(conn::setRequestProperty);
+            if ("POST".equalsIgnoreCase(method) && payload != null) {
+                conn.setDoOutput(true);
+                conn.getOutputStream().write(payload.getBytes(StandardCharsets.UTF_8));
+            }
+            int status = conn.getResponseCode();
+            String resp = readResponse(conn, status);
+            boolean vulnerable = checkString != null && !checkString.isEmpty() && resp.contains(checkString);
+            vulnerability.setResult(vulnerable ? "VULNERABLE" : "NOT_VULNERABLE");
+            vulnerability.setResponseDetails(resp.length() > 4000 ? resp.substring(0, 4000) : resp);
+        } catch (Exception e) {
+            logger.error("Erro no sendHttpTest", e);
+            vulnerability.setResult("ERROR: " + e.getMessage());
+            vulnerability.setResponseDetails(e.toString());
+        } finally {
+            if (conn != null) conn.disconnect();
+        }
+        return vulnerability;
+    }
+
+    private String readResponse(HttpURLConnection conn, int status) throws Exception {
+        try (Scanner s = new Scanner(status >= 200 && status < 300 ? conn.getInputStream() : conn.getErrorStream(), StandardCharsets.UTF_8.name()).useDelimiter("\\A")) {
+            return s.hasNext() ? s.next() : "";
+        }
+    }
+
+    /* ---------- Specific tests (thin wrappers) ---------- */
+    private Vulnerability testXXEOutOfBand(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Content-Type", "application/xml"), "root:");
+    }
+
+    private Vulnerability testBlindSSRF(String url, String payload) {
+        return sendHttpTest(url + "?url=" + java.net.URLEncoder.encode(payload, StandardCharsets.UTF_8), null, "GET", null, "internal");
+    }
+
+    private Vulnerability testWebSocketHijacking(String url, String payload) {
+        return sendHttpTest(url, null, "GET", Map.of("Upgrade", "websocket", "Connection", "Upgrade"), "attacker.com");
+    }
+
+    private Vulnerability testTemplateInjection(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Content-Type", "text/plain"), "49");
+    }
+
+    private Vulnerability testPrototypePollution(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Content-Type", "application/json"), "toString");
+    }
+
+    private Vulnerability testLogPoisoning(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Content-Type", "text/plain"), "pwned");
+    }
+
+    private Vulnerability testSSRFNetworkScanning(String url, String payload) {
+        return sendHttpTest(url + "?url=" + java.net.URLEncoder.encode(payload, StandardCharsets.UTF_8), null, "GET", null, "10.0.0.");
+    }
+
+    private Vulnerability testXXELocalFile(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Content-Type", "application/xml"), "root:");
+    }
+
+    private Vulnerability testWebSocketBackdoor(String url, String payload) {
+        return sendHttpTest(url, null, "GET", Map.of("Upgrade", "websocket", "Connection", "Upgrade"), "backdoor");
+    }
+
+    private Vulnerability testGraphQLInjection(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Content-Type", "application/graphql"), "schema");
+    }
+
+    private Vulnerability testJWTManipulation(String url, String payload) {
+        return sendHttpTest(url + "?token=" + java.net.URLEncoder.encode(payload, StandardCharsets.UTF_8), null, "GET", null, "admin");
+    }
+
+    private Vulnerability testXXERCE(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Content-Type", "application/xml"), "id");
+    }
+
+    private Vulnerability testSSRFCloudMetadata(String url, String payload) {
+        return sendHttpTest(url + "?url=" + java.net.URLEncoder.encode(payload, StandardCharsets.UTF_8),
+                null, "GET", Map.of("Metadata-Flavor", "Google"), "token");
+    }
+
+    private Vulnerability testDOMXSS(String url, String payload) {
+        return sendHttpTest(url + "?input=" + java.net.URLEncoder.encode(payload, StandardCharsets.UTF_8),
+                null, "GET", null, payload);
+    }
+
+    private Vulnerability testHTTPRequestSmuggling(String url, String payload) {
+        return sendHttpTest(url, payload, "POST", Map.of("Transfer-Encoding", "chunked"), "admin");
+    }
+
+    private Vulnerability defaultTest(String url, String payload) {
+        Vulnerability v = new Vulnerability();
+        v.setResult("NOT_IMPLEMENTED");
+        v.setResponseDetails("Exploit não implementado. URL: " + url);
+        return v;
+    }
+
+    /* ---------- Category / Severity maps (avoid Map.of with >10 pairs) ---------- */
+    private String getCategoryForVulnerability(String type) {
+        Map<String, String> m = new HashMap<>();
+        m.put("XXE with Out-of-Band Exfiltration", "XML Injection");
+        m.put("Blind SSRF with DNS Exfiltration", "SSRF");
+        m.put("WebSocket Hijacking with Session Stealing", "WebSocket");
+        m.put("Template Injection with Sandbox Escape", "Template Injection");
+        m.put("Prototype Pollution with Privilege Escalation", "Client-Side");
+        m.put("Log Poisoning with Command Execution", "Injection");
+        m.put("SSRF with Internal Network Scanning", "SSRF");
+        m.put("XXE with Local File Inclusion", "XML Injection");
+        m.put("WebSocket Hijacking with Persistent Backdoor", "WebSocket");
+        m.put("GraphQL Injection with Query Chaining", "GraphQL");
+        m.put("JWT Manipulation with Key Confusion Attack", "Authentication");
+        m.put("XXE with RCE Chain", "XML Injection");
+        m.put("SSRF with Cloud Metadata Exploitation", "SSRF");
+        m.put("DOM-based XSS with Mutation Observer", "XSS");
+        m.put("HTTP Request Smuggling", "HTTP");
+        return m.getOrDefault(type, "Other");
+    }
+
+    private String getSeverityForVulnerability(String type) {
+        Map<String, String> m = new HashMap<>();
+        m.put("XXE with Out-of-Band Exfiltration", "Critical");
+        m.put("Blind SSRF with DNS Exfiltration", "High");
+        m.put("WebSocket Hijacking with Session Stealing", "High");
+        m.put("Template Injection with Sandbox Escape", "Critical");
+        m.put("Prototype Pollution with Privilege Escalation", "High");
+        m.put("Log Poisoning with Command Execution", "Critical");
+        m.put("SSRF with Internal Network Scanning", "High");
+        m.put("XXE with Local File Inclusion", "Critical");
+        m.put("WebSocket Hijacking with Persistent Backdoor", "Critical");
+        m.put("GraphQL Injection with Query Chaining", "High");
+        m.put("JWT Manipulation with Key Confusion Attack", "High");
+        m.put("XXE with RCE Chain", "Critical");
+        m.put("SSRF with Cloud Metadata Exploitation", "Critical");
+        m.put("DOM-based XSS with Mutation Observer", "Medium");
+        m.put("HTTP Request Smuggling", "High");
+        return m.getOrDefault(type, "Medium");
+    }
+}

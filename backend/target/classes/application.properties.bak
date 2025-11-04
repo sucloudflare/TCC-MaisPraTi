@@ -1,0 +1,78 @@
+# CONFIGURAÇÃO COMPLETA E OTIMIZADA DO BACKEND
+
+# ===============================
+# SERVER
+# ===============================
+server.port=8080
+server.servlet.context-path=/api
+server.tomcat.connection-timeout=5000
+server.tomcat.threads.max=200
+server.tomcat.threads.min-spare=10
+
+# ===============================
+# SPRING APPLICATION
+# ===============================
+spring.application.name=bugbounty-tcc
+
+# ===============================
+# DATABASE (PostgreSQL)
+# ===============================
+spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/juizofinal
+spring.datasource.username=tcc_user
+spring.datasource.password=0000
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# Pool de conexões HikariCP
+spring.datasource.hikari.maximum-pool-size=20
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.idle-timeout=600000
+spring.datasource.hikari.max-lifetime=1800000
+
+# ===============================
+# JPA / HIBERNATE
+# ===============================
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+
+# ===============================
+# BUG BOUNTY (Custom Config)
+# ===============================
+bugbounty.user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+bugbounty.request-delay-ms=1200
+bugbounty.connect-timeout-ms=10000
+bugbounty.read-timeout-ms=15000
+bugbounty.allowed-domains=localhost,web-security-academy.net,oastify.com,interactsh.com,dvwa.co.uk,target.com,app.bugbounty.com
+
+# ===============================
+# JWT
+# ===============================
+jwt.secret=c29tZV9zdXBlcl9zZWNyZXRfS0VZX19MT05HX0VOT1VHSF9GT1JfSFMyNTY=
+jwt.expiration=86400000
+jwt.issuer=bugbounty-tcc
+
+# ===============================
+# LOGGING
+# ===============================
+logging.level.root=INFO
+logging.level.com.example.bugbounty=DEBUG
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql=TRACE
+logging.level.org.springframework.security=INFO
+logging.level.org.springframework.web=INFO
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+logging.file.name=logs/bugbounty.log
+
+# OBS: Se quiser rotação de logs (max-size / max-history), use logback-spring.xml
+# pois logging.file.max-size e max-history não são propriedades suportadas nativamente
+
+# ===============================
+# ACTUATOR / MONITORAMENTO
+# ===============================
+management.endpoints.web.exposure.include=health,info,metrics
+management.endpoint.health.show-details=always
