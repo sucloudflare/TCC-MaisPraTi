@@ -5,7 +5,7 @@
 
 <h1>Meu Vídeo</h1>
   <video controls>
-    <source src="a.mp4" type="video/mp4">
+    <source src="./a.mp4" type="video/mp4">
     Seu navegador não suporta o elemento de vídeo.
   </video>
   <br>
