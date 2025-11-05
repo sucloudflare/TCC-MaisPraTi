@@ -2,7 +2,8 @@
   <h1>🛡️ BugBounty API – Plataforma Avançada de Testes de Vulnerabilidades</h1>
 </header>
 <br>
-<h1>Video</h1>
+<h1>Video:</h1>
+
 [![Assistir vídeo](https://img.youtube.com/vi/llXEi6LX4zw/0.jpg)](https://www.youtube.com/watch?v=llXEi6LX4zw)
 
 
