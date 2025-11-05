@@ -3,12 +3,7 @@
 </header>
 <br>
 
-<h1>Meu Vídeo</h1>
-  <video controls>
-    <source src="./a.mp4" type="video/mp4">
-    Seu navegador não suporta o elemento de vídeo.
-  </video>
-  <br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/llXEi6LX4zw?si=obEFfUXqiJ3Wj-Pe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 <section>
