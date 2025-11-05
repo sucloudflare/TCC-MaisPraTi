@@ -3,16 +3,8 @@
 </header>
 <br>
 
-<iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/llXEi6LX4zw?si=obEFfUXqiJ3Wj-Pe" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen
-  ></iframe>
+[![Assistir vídeo](https://img.youtube.com/vi/llXEi6LX4zw/0.jpg)](https://www.youtube.com/watch?v=llXEi6LX4zw)
+
 
 
 <section>
