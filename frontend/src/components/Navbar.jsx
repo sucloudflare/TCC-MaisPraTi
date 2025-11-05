@@ -22,32 +22,96 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`navbar navbar-expand-lg sticky-top ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-white shadow-sm'}`}
+      className={`navbar navbar-expand-lg sticky-top ${darkMode ? 'navbar-dark' : 'navbar-light'}`}
+      style={{
+        background: darkMode ? "#1e293b" : "#ffffff",
+        boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+        padding: "0.5rem 1rem",
+      }}
     >
-      <div className="container-fluid">
-        <Link className={`navbar-brand d-flex align-items-center gap-2 fw-bold ${darkMode ? 'text-white' : 'text-primary'}`} to="/dashboard">
+      <div className="container-fluid d-flex align-items-center justify-content-between">
+
+        {/* Logo */}
+        <Link
+          className={`navbar-brand d-flex align-items-center gap-2 fw-bold`}
+          to="/dashboard"
+          style={{
+            color: darkMode ? "#10b981" : "#3b82f6",
+            fontSize: "1.25rem",
+          }}
+        >
           <Shield size={28} />
           BugBounty TCC
         </Link>
 
+        {/* Mobile Toggle + Icons */}
         <div className="d-flex align-items-center gap-2 order-lg-2">
-          <button onClick={toggleDarkMode} className="btn btn-sm btn-outline-secondary" title="Alternar tema">
+          <button
+            onClick={toggleDarkMode}
+            className="btn btn-sm"
+            style={{
+              background: darkMode ? "#334155" : "#f1f5f9",
+              border: "none",
+              borderRadius: "0.5rem",
+              padding: "0.25rem 0.5rem",
+              color: darkMode ? "#f1f5f9" : "#1e293b",
+              transition: "all 0.2s",
+            }}
+            title="Alternar tema"
+          >
             {darkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button className="btn btn-sm btn-outline-secondary position-relative" title="Notificações">
+
+          <button
+            className="btn btn-sm position-relative"
+            style={{
+              background: darkMode ? "#334155" : "#f1f5f9",
+              border: "none",
+              borderRadius: "0.5rem",
+              padding: "0.25rem 0.5rem",
+              color: darkMode ? "#f1f5f9" : "#1e293b",
+            }}
+            title="Notificações"
+          >
             <Bell size={18} />
-            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+            <span
+              className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+              style={{ background: "#ef4444", color: "#ffffff", fontSize: "0.65rem" }}
+            >
+              3
+            </span>
           </button>
-          <button className="navbar-toggler" onClick={() => setExpanded(!expanded)}>
+
+          <button
+            className="navbar-toggler"
+            onClick={() => setExpanded(!expanded)}
+            style={{
+              border: "none",
+              background: darkMode ? "#334155" : "#f1f5f9",
+              borderRadius: "0.5rem",
+              padding: "0.25rem 0.5rem",
+            }}
+          >
             {expanded ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`}>
-          <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+        {/* Nav Links */}
+        <div className={`collapse navbar-collapse ${expanded ? "show" : ""}`}>
+          <ul className="navbar-nav me-auto mt-3 mt-lg-0">
             {navItems.map(({ to, label, icon: Icon }) => (
               <li key={to} className="nav-item">
-                <Link className={`nav-link d-flex align-items-center gap-2 ${darkMode ? 'text-white' : 'text-dark'}`} to={to}>
+                <Link
+                  className="nav-link d-flex align-items-center gap-2"
+                  to={to}
+                  style={{
+                    color: darkMode ? "#e2e8f0" : "#1e293b",
+                    fontWeight: 500,
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = darkMode ? "#10b981" : "#3b82f6"}
+                  onMouseLeave={(e) => e.currentTarget.style.color = darkMode ? "#e2e8f0" : "#1e293b"}
+                >
                   <Icon size={18} />
                   {label}
                 </Link>
@@ -55,17 +119,51 @@ export default function Navbar() {
             ))}
           </ul>
 
+          {/* User Dropdown */}
           <div className="dropdown">
-            <button className={`btn dropdown-toggle d-flex align-items-center gap-2 ${darkMode ? 'btn-outline-light' : 'btn-outline-secondary'}`} data-bs-toggle="dropdown">
+            <button
+              className={`btn d-flex align-items-center gap-2`}
+              data-bs-toggle="dropdown"
+              style={{
+                background: darkMode ? "#334155" : "#f1f5f9",
+                color: darkMode ? "#f1f5f9" : "#1e293b",
+                borderRadius: "0.5rem",
+                padding: "0.25rem 0.75rem",
+                fontWeight: 500,
+                transition: "all 0.2s",
+              }}
+            >
               <User size={18} />
               <span className="d-none d-md-inline">{user?.username || user?.email}</span>
             </button>
-            <ul className={`dropdown-menu dropdown-menu-end ${darkMode ? 'bg-dark border-secondary' : ''}`}>
-              <li><Link className="dropdown-item d-flex align-items-center gap-2" to="/profile"><User size={16} /> Perfil</Link></li>
-              <li><Link className="dropdown-item d-flex align-items-center gap-2" to="/settings"><Settings size={16} /> Configurações</Link></li>
-              <li><hr className="dropdown-divider" /></li>
+            <ul
+              className={`dropdown-menu dropdown-menu-end`}
+              style={{
+                background: darkMode ? "#1e293b" : "#ffffff",
+                border: darkMode ? "1px solid #334155" : "1px solid #e2e8f0",
+                borderRadius: "0.75rem",
+                minWidth: "180px",
+                padding: "0.5rem 0",
+              }}
+            >
               <li>
-                <button onClick={logout} className="dropdown-item text-danger d-flex align-items-center gap-2">
+                <Link className="dropdown-item d-flex align-items-center gap-2" to="/profile">
+                  <User size={16} /> Perfil
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item d-flex align-items-center gap-2" to="/settings">
+                  <Settings size={16} /> Configurações
+                </Link>
+              </li>
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li>
+                <button
+                  onClick={logout}
+                  className="dropdown-item text-danger d-flex align-items-center gap-2"
+                >
                   <LogOut size={16} /> Sair
                 </button>
               </li>

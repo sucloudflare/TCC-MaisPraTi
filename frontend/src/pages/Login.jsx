@@ -1,10 +1,12 @@
 // src/pages/Login.jsx
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // Certifique-se de que está configurado
-import { login, verifyMfa } from "../api/auth"; // Certifique-se de que existem
-import Toast from "../components/Toast"; // Certifique-se de que existe
-import LoadingSpinner from "../components/LoadingSpinner"; // Certifique-se de que existe
+import { useAuth } from "../context/AuthContext";
+import { login, verifyMfa } from "../api/auth";
+import Toast from "../components/Toast";
+import LoadingSpinner from "../components/LoadingSpinner";
+import { motion, AnimatePresence } from "framer-motion";
+import { Lock, Mail, Smartphone, Shield, Zap } from "lucide-react";
 
 export default function Login() {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
@@ -81,88 +83,210 @@ export default function Login() {
 
   return (
     <>
-      {toast.show && <Toast message={toast.message} type={toast.type} onClose={() => setToast({ show: false })} />}
-
-      <div
-        className="min-vh-100 d-flex align-items-center justify-content-center p-3"
-        style={{ background: "linear-gradient(135deg, #4a3aff 0%, #7b2ff7 100%)" }}
-      >
-        <div className="card shadow-lg border-0" style={{ maxWidth: "420px", width: "100%", borderRadius: "1.5rem" }}>
-          <div className="card-body p-5">
-            <div className="text-center mb-4">
-              <h2 className="fw-bold text-primary">BugBounty TCC</h2>
-              <p className="text-muted">Login seguro com MFA</p>
+      {/* Toast */}
+      <AnimatePresence>
+        {toast.show && (
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+            className="position-fixed top-0 end-0 p-3"
+            style={{ zIndex: 9999 }}
+          >
+            <div
+              className={`alert alert-${toast.type} alert-dismissible fade show shadow-lg d-flex align-items-center gap-3 rounded-4 border-0`}
+              style={{
+                background:
+                  toast.type === "success"
+                    ? "#38bdf8"
+                    : toast.type === "danger"
+                    ? "#60a5fa"
+                    : toast.type === "warning"
+                    ? "#93c5fd"
+                    : "#3b82f6",
+                color: "white",
+              }}
+            >
+              <Zap size={20} />
+              <div className="flex-grow-1 fw-semibold">{toast.message}</div>
+              <button className="btn-close btn-close-white" onClick={() => setToast({ show: false })}></button>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  className="form-control form-control-lg rounded-pill"
-                  placeholder="Usuário ou e-mail"
-                  value={usernameOrEmail}
-                  onChange={(e) => setUsernameOrEmail(e.target.value)}
-                  disabled={loading || mfaRequired}
-                  required
-                />
-              </div>
+      {/* Fundo + Card */}
+      <div
+        className="min-vh-100 d-flex align-items-center justify-content-center p-4"
+        style={{
+          background: "#ffffff", // Fundo branco
+          color: "#007bff",      // Azul nos textos
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-100"
+          style={{ maxWidth: "420px" }}
+        >
+          <div
+            className="card border-0 shadow-lg"
+            style={{
+              backgroundColor: "#f8f9fa",
+              borderRadius: "1.5rem",
+              padding: "2rem",
+            }}
+          >
+            <div className="card-body text-center">
+              {/* Logo + Título */}
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="d-inline-flex align-items-center justify-content-center p-3 rounded-circle mb-4"
+                style={{
+                  background: "#dbeafe", // azul claro suave
+                  width: "80px",
+                  height: "80px",
+                  margin: "0 auto",
+                }}
+              >
+                <Shield size={40} style={{ color: "#007bff" }} />
+              </motion.div>
+              <h2 className="fw-bold mb-2" style={{ color: "#007bff" }}>BugBounty TCC</h2>
+              <p style={{ color: "#555555" }}>Login seguro com MFA</p>
 
-              {!mfaRequired && (
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    className="form-control form-control-lg rounded-pill"
-                    placeholder="Senha"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    disabled={loading}
-                    required
-                  />
-                </div>
-              )}
-
-              {mfaRequired && (
-                <div className="mb-3 text-center">
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="mt-4">
+                {/* Usuário/Email */}
+                <div className="mb-3 text-start">
+                  <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Usuário ou Email</label>
                   <input
                     type="text"
-                    className="form-control form-control-lg text-center rounded-pill"
-                    placeholder="______"
-                    value={mfaCode}
-                    onChange={(e) => setMfaCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                    maxLength={6}
-                    autoFocus
-                    style={{ letterSpacing: "0.5rem", fontSize: "1.5rem", fontWeight: "bold" }}
+                    className="form-control"
+                    placeholder="usuario ou email@dominio.com"
+                    value={usernameOrEmail}
+                    onChange={(e) => setUsernameOrEmail(e.target.value)}
+                    disabled={loading || mfaRequired}
+                    required
+                    style={{
+                      borderRadius: "0.75rem",
+                      border: "1px solid #007bff",
+                      backgroundColor: "#ffffff",
+                      color: "#007bff",
+                      padding: "0.75rem 1rem",
+                      fontSize: "1rem",
+                      outline: "none",
+                    }}
+                    onFocus={(e) => e.target.style.boxShadow = "0 0 8px rgba(0,123,255,0.4)"}
+                    onBlur={(e) => e.target.style.boxShadow = "none"}
                   />
-                  <small className="text-muted d-block mt-2">Abra seu app autenticador</small>
                 </div>
-              )}
 
-              <button
-                type="submit"
-                className="btn btn-primary btn-lg w-100 rounded-pill fw-bold d-flex align-items-center justify-content-center gap-2"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <div className="spinner-border spinner-border-sm" role="status"></div>
-                    Processando...
-                  </>
-                ) : mfaRequired ? "Verificar MFA" : "Entrar"}
-              </button>
-            </form>
+                {/* Senha */}
+                {!mfaRequired && (
+                  <div className="mb-3 text-start">
+                    <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Senha</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="••••••••"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      disabled={loading}
+                      required
+                      style={{
+                        borderRadius: "0.75rem",
+                        border: "1px solid #007bff",
+                        backgroundColor: "#ffffff",
+                        color: "#007bff",
+                        padding: "0.75rem 1rem",
+                        fontSize: "1rem",
+                        outline: "none",
+                      }}
+                      onFocus={(e) => e.target.style.boxShadow = "0 0 8px rgba(0,123,255,0.4)"}
+                      onBlur={(e) => e.target.style.boxShadow = "none"}
+                    />
+                  </div>
+                )}
 
-            {!mfaRequired && (
-              <div className="d-flex justify-content-between mt-4">
-                <button className="btn btn-link text-primary p-0" onClick={() => navigate("/forgot-password")}>
-                  Esqueci a senha
-                </button>
-                <button className="btn btn-link text-primary p-0" onClick={() => navigate("/register")}>
-                  Criar conta
-                </button>
-              </div>
-            )}
+                {/* MFA */}
+                {mfaRequired && (
+                  <div className="mb-3 text-center">
+                    <label className="form-label fw-medium mb-2" style={{ color: "#007bff" }}>
+                      <Smartphone size={18} style={{ color: "#007bff" }} /> Código MFA
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control text-center fw-bold"
+                      placeholder="______"
+                      value={mfaCode}
+                      onChange={(e) => setMfaCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                      maxLength={6}
+                      autoFocus
+                      style={{
+                        letterSpacing: "0.5rem",
+                        fontSize: "1.5rem",
+                        borderRadius: "0.75rem",
+                        border: "1px solid #007bff",
+                        padding: "0.5rem",
+                        color: "#007bff",
+                        backgroundColor: "#ffffff",
+                        outline: "none",
+                      }}
+                      onFocus={(e) => e.target.style.boxShadow = "0 0 8px rgba(0,123,255,0.4)"}
+                      onBlur={(e) => e.target.style.boxShadow = "none"}
+                    />
+                    <small style={{ color: "#555555", display: "block", marginTop: "0.5rem" }}>Abra seu app autenticador</small>
+                  </div>
+                )}
+
+                {/* Botão */}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  disabled={loading}
+                  className="btn w-100 fw-bold"
+                  style={{
+                    backgroundColor: "#007bff",
+                    border: "none",
+                    borderRadius: "1rem",
+                    height: "52px",
+                    color: "#ffffff",
+                    marginTop: "1rem",
+                  }}
+                >
+                  {loading ? "Processando..." : mfaRequired ? "Verificar MFA" : "Entrar"}
+                </motion.button>
+
+                {/* Links */}
+                {!mfaRequired && (
+                  <div className="d-flex justify-content-between mt-3 text-sm">
+                    <button
+                      className="btn btn-link p-0 fw-medium"
+                      onClick={() => navigate("/forgot-password")}
+                      style={{ color: "#007bff" }}
+                    >
+                      Esqueci a senha
+                    </button>
+                    <button
+                      className="btn btn-link p-0 fw-medium"
+                      onClick={() => navigate("/register")}
+                      style={{ color: "#007bff" }}
+                    >
+                      Criar conta
+                    </button>
+                  </div>
+                )}
+              </form>
+            </div>
           </div>
-        </div>
+
+          <div className="text-center mt-4 small" style={{ color: "#555555" }}>
+            © 2025 BugBounty TCC. Todos os direitos reservados.
+          </div>
+        </motion.div>
       </div>
     </>
   );
