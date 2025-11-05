@@ -2,13 +2,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { useTheme } from "../context/ThemeContext";
 import { motion } from "framer-motion";
-import { Shield, Target, Beaker, LogOut, Menu, X, Moon, Sun, User, Bell, Settings } from "lucide-react";
+import { Shield, Target, Beaker, LogOut, Menu, X, User, Bell, Settings } from "lucide-react";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
-  const { darkMode, toggleDarkMode } = useTheme();
   const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
 
@@ -22,9 +20,9 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`navbar navbar-expand-lg sticky-top ${darkMode ? 'navbar-dark' : 'navbar-light'}`}
+      className="navbar navbar-expand-lg sticky-top navbar-light"
       style={{
-        background: darkMode ? "#1e293b" : "#ffffff",
+        background: "#ffffff",
         boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
         padding: "0.5rem 1rem",
       }}
@@ -33,10 +31,10 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link
-          className={`navbar-brand d-flex align-items-center gap-2 fw-bold`}
+          className="navbar-brand d-flex align-items-center gap-2 fw-bold"
           to="/dashboard"
           style={{
-            color: darkMode ? "#10b981" : "#3b82f6",
+            color: "#3b82f6",
             fontSize: "1.25rem",
           }}
         >
@@ -46,30 +44,15 @@ export default function Navbar() {
 
         {/* Mobile Toggle + Icons */}
         <div className="d-flex align-items-center gap-2 order-lg-2">
-          <button
-            onClick={toggleDarkMode}
-            className="btn btn-sm"
-            style={{
-              background: darkMode ? "#334155" : "#f1f5f9",
-              border: "none",
-              borderRadius: "0.5rem",
-              padding: "0.25rem 0.5rem",
-              color: darkMode ? "#f1f5f9" : "#1e293b",
-              transition: "all 0.2s",
-            }}
-            title="Alternar tema"
-          >
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
 
           <button
             className="btn btn-sm position-relative"
             style={{
-              background: darkMode ? "#334155" : "#f1f5f9",
+              background: "#f1f5f9",
               border: "none",
               borderRadius: "0.5rem",
               padding: "0.25rem 0.5rem",
-              color: darkMode ? "#f1f5f9" : "#1e293b",
+              color: "#1e293b",
             }}
             title="Notificações"
           >
@@ -87,7 +70,7 @@ export default function Navbar() {
             onClick={() => setExpanded(!expanded)}
             style={{
               border: "none",
-              background: darkMode ? "#334155" : "#f1f5f9",
+              background: "#f1f5f9",
               borderRadius: "0.5rem",
               padding: "0.25rem 0.5rem",
             }}
@@ -105,12 +88,12 @@ export default function Navbar() {
                   className="nav-link d-flex align-items-center gap-2"
                   to={to}
                   style={{
-                    color: darkMode ? "#e2e8f0" : "#1e293b",
+                    color: "#1e293b",
                     fontWeight: 500,
                     transition: "all 0.2s",
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = darkMode ? "#10b981" : "#3b82f6"}
-                  onMouseLeave={(e) => e.currentTarget.style.color = darkMode ? "#e2e8f0" : "#1e293b"}
+                  onMouseEnter={(e) => e.currentTarget.style.color = "#3b82f6"}
+                  onMouseLeave={(e) => e.currentTarget.style.color = "#1e293b"}
                 >
                   <Icon size={18} />
                   {label}
@@ -122,11 +105,11 @@ export default function Navbar() {
           {/* User Dropdown */}
           <div className="dropdown">
             <button
-              className={`btn d-flex align-items-center gap-2`}
+              className="btn d-flex align-items-center gap-2"
               data-bs-toggle="dropdown"
               style={{
-                background: darkMode ? "#334155" : "#f1f5f9",
-                color: darkMode ? "#f1f5f9" : "#1e293b",
+                background: "#f1f5f9",
+                color: "#1e293b",
                 borderRadius: "0.5rem",
                 padding: "0.25rem 0.75rem",
                 fontWeight: 500,
@@ -137,10 +120,10 @@ export default function Navbar() {
               <span className="d-none d-md-inline">{user?.username || user?.email}</span>
             </button>
             <ul
-              className={`dropdown-menu dropdown-menu-end`}
+              className="dropdown-menu dropdown-menu-end"
               style={{
-                background: darkMode ? "#1e293b" : "#ffffff",
-                border: darkMode ? "1px solid #334155" : "1px solid #e2e8f0",
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
                 borderRadius: "0.75rem",
                 minWidth: "180px",
                 padding: "0.5rem 0",
