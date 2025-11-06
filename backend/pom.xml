@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>Bug Bounty TCC</name>
-    <description>API completa de Bug Bounty com PostgreSQL, JWT, PDF, Swagger</description>
+    <description>API completa de Bug Bounty com PostgreSQL, JWT, TXT, Swagger</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -22,12 +22,11 @@
     <properties>
         <java.version>21</java.version>
         <jjwt.version>0.11.5</jjwt.version>
-        <itext.version>7.2.5</itext.version>
         <springdoc.version>2.6.0</springdoc.version>
     </properties>
 
     <dependencies>
-        <!-- SPRING BOOT STARTERS -->
+        <!-- SPRING BOOT -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -45,7 +44,7 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!-- WebSocket -->
+        <!-- WEBSOCKET -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
@@ -77,47 +76,35 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- PDF iText 7 -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-            <version>${itext.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-            <version>${itext.version}</version>
-        </dependency>
-
-        <!-- OWASP Encoder -->
+        <!-- OWASP -->
         <dependency>
             <groupId>org.owasp.encoder</groupId>
             <artifactId>encoder</artifactId>
             <version>1.2.3</version>
         </dependency>
 
-        <!-- Swagger/OpenAPI -->
+        <!-- SWAGGER -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>${springdoc.version}</version>
         </dependency>
 
-        <!-- MFA - TOTP -->
+        <!-- MFA -->
         <dependency>
             <groupId>com.eatthepath</groupId>
             <artifactId>java-otp</artifactId>
             <version>0.4.0</version>
         </dependency>
 
-        <!-- Lombok -->
+        <!-- LOMBOK -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- Test -->
+        <!-- TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -132,7 +119,6 @@
 
     <build>
         <plugins>
-            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -141,7 +127,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Spring Boot Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

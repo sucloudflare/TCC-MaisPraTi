@@ -83,9 +83,10 @@ export default function Dashboard() {
           maxWidth: 260,
           cursor: "pointer",
           borderRadius: 12,
-          padding: "14px 16px",
-          backgroundColor: node.color,
-          color: "#ffffff",
+          padding: "16px",
+          backgroundColor: "#f8f9fa",
+          border: "1px solid #000",
+          color: "#000",
           display: "flex",
           flexDirection: "column",
           gap: 6,
@@ -93,11 +94,15 @@ export default function Dashboard() {
         onClick={() => toggle(node.id)}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Icon size={20} />
+          <Icon size={20} color={node.color} />
           <strong>{node.label}</strong>
         </div>
-        {node.desc && <div style={{ fontSize: 13, color: "#f3f4f6", marginTop: 4 }}>{node.desc}</div>}
-        {node.children && <small style={{ marginTop: 6, color: "#e5e7eb" }}>{expanded[node.id] ? "Clique para fechar" : "Clique para expandir"}</small>}
+        {node.desc && <div style={{ fontSize: 13, color: "#6b7280", marginTop: 4 }}>{node.desc}</div>}
+        {node.children && (
+          <small style={{ marginTop: 6, color: "#374151" }}>
+            {expanded[node.id] ? "Clique para fechar" : "Clique para expandir"}
+          </small>
+        )}
       </motion.div>
     );
   }
@@ -110,9 +115,7 @@ export default function Dashboard() {
             <NodeCard node={node} />
             {node.children && expanded[node.id] && (
               <div style={{ display: "flex", gap: 18, marginTop: 12 }}>
-                {node.children.map(child => (
-                  <NodeCard key={child.id} node={child} />
-                ))}
+                {node.children.map(child => <NodeCard key={child.id} node={child} />)}
               </div>
             )}
           </div>
@@ -122,9 +125,9 @@ export default function Dashboard() {
   }
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#f8fafc", padding: "40px 0" }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "#f1f3f5", padding: "40px 0" }}>
       <div className="container">
-        <h1 className="mb-4 text-primary">Bem-vindo, {user.username}!</h1>
+        <h1 className="mb-4 text-dark">Bem-vindo, {user.username}!</h1>
 
         {/* Stats */}
         <div className="row g-4 mb-5">
@@ -134,10 +137,21 @@ export default function Dashboard() {
                 borderRadius: 14,
                 padding: "20px",
                 backgroundColor: "#ffffff",
-                boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
+                border: "1px solid #000",
                 textAlign: "center",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
               }}>
-                <div style={{ width: 60, height: 60, borderRadius: 999, backgroundColor: s.color + "33", margin: "0 auto 10px", display: "flex", alignItems: "center", justifyContent: "center", color: s.color }}>
+                <div style={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: 999,
+                  backgroundColor: s.color + "33",
+                  margin: "0 auto 10px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: s.color,
+                }}>
                   <s.icon size={28} />
                 </div>
                 <h3 style={{ margin: 0, fontWeight: 700 }}>{s.value}</h3>
@@ -158,7 +172,7 @@ export default function Dashboard() {
                   backgroundColor: a.bg,
                   color: a.text,
                   textAlign: "center",
-                  boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
                   transition: "transform 0.2s",
                 }} className="d-flex flex-column align-items-center justify-content-center">
                   <a.icon size={40} className="mb-2" />
@@ -170,7 +184,7 @@ export default function Dashboard() {
         </div>
 
         {/* Tutoriais */}
-        <h4 className="mb-3">Tutoriais</h4>
+        <h4 className="mb-3 text-dark">Tutoriais</h4>
         <HorizontalTree nodes={tutorials} />
       </div>
     </div>

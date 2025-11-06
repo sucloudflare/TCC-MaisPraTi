@@ -20,11 +20,12 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="navbar navbar-expand-lg sticky-top navbar-light"
+      className="navbar navbar-expand-lg sticky-top"
       style={{
-        background: "#ffffff",
-        boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+        backgroundColor: "#f8f9fa", // fundo branco escuro suave
+        borderBottom: "1px solid #000", // borda preta
         padding: "0.5rem 1rem",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
       }}
     >
       <div className="container-fluid d-flex align-items-center justify-content-between">
@@ -33,10 +34,7 @@ export default function Navbar() {
         <Link
           className="navbar-brand d-flex align-items-center gap-2 fw-bold"
           to="/dashboard"
-          style={{
-            color: "#3b82f6",
-            fontSize: "1.25rem",
-          }}
+          style={{ color: "#1e293b", fontSize: "1.25rem" }}
         >
           <Shield size={28} />
           BugBounty TCC
@@ -44,12 +42,11 @@ export default function Navbar() {
 
         {/* Mobile Toggle + Icons */}
         <div className="d-flex align-items-center gap-2 order-lg-2">
-
           <button
             className="btn btn-sm position-relative"
             style={{
-              background: "#f1f5f9",
-              border: "none",
+              background: "#ffffff",
+              border: "1px solid #000",
               borderRadius: "0.5rem",
               padding: "0.25rem 0.5rem",
               color: "#1e293b",
@@ -69,8 +66,8 @@ export default function Navbar() {
             className="navbar-toggler"
             onClick={() => setExpanded(!expanded)}
             style={{
-              border: "none",
-              background: "#f1f5f9",
+              border: "1px solid #000",
+              background: "#ffffff",
               borderRadius: "0.5rem",
               padding: "0.25rem 0.5rem",
             }}
@@ -91,9 +88,14 @@ export default function Navbar() {
                     color: "#1e293b",
                     fontWeight: 500,
                     transition: "all 0.2s",
+                    border: "1px solid #000",
+                    borderRadius: "0.5rem",
+                    padding: "0.25rem 0.5rem",
+                    backgroundColor: "#ffffff",
+                    margin: "2px 0",
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = "#3b82f6"}
-                  onMouseLeave={(e) => e.currentTarget.style.color = "#1e293b"}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#e5e7eb"}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#ffffff"}
                 >
                   <Icon size={18} />
                   {label}
@@ -108,8 +110,9 @@ export default function Navbar() {
               className="btn d-flex align-items-center gap-2"
               data-bs-toggle="dropdown"
               style={{
-                background: "#f1f5f9",
+                background: "#ffffff",
                 color: "#1e293b",
+                border: "1px solid #000",
                 borderRadius: "0.5rem",
                 padding: "0.25rem 0.75rem",
                 fontWeight: 500,
@@ -122,30 +125,28 @@ export default function Navbar() {
             <ul
               className="dropdown-menu dropdown-menu-end"
               style={{
-                background: "#ffffff",
-                border: "1px solid #e2e8f0",
+                background: "#f8f9fa",
+                border: "1px solid #000",
                 borderRadius: "0.75rem",
                 minWidth: "180px",
                 padding: "0.5rem 0",
               }}
             >
               <li>
-                <Link className="dropdown-item d-flex align-items-center gap-2" to="/profile">
+                <Link className="dropdown-item d-flex align-items-center gap-2" to="/profile" style={{ borderBottom: "1px solid #000" }}>
                   <User size={16} /> Perfil
                 </Link>
               </li>
               <li>
-                <Link className="dropdown-item d-flex align-items-center gap-2" to="/settings">
+                <Link className="dropdown-item d-flex align-items-center gap-2" to="/settings" style={{ borderBottom: "1px solid #000" }}>
                   <Settings size={16} /> Configurações
                 </Link>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
               </li>
               <li>
                 <button
                   onClick={logout}
                   className="dropdown-item text-danger d-flex align-items-center gap-2"
+                  style={{ borderTop: "1px solid #000" }}
                 >
                   <LogOut size={16} /> Sair
                 </button>

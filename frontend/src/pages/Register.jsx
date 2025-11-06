@@ -6,7 +6,7 @@ import { register, verifyMfa } from "../api/auth";
 import Toast from "../components/Toast";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Lock, User, Smartphone, Eye, EyeOff, Shield, CheckCircle } from "lucide-react";
+import { Mail, Lock, User, Smartphone, Shield, CheckCircle } from "lucide-react";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -43,15 +43,10 @@ export default function Register() {
   };
 
   const handleRegister = async () => {
-    if (!username || !email || !password || !confirmPassword) {
+    if (!username || !email || !password || !confirmPassword)
       return showToast("Preencha todos os campos", "warning");
-    }
-    if (password !== confirmPassword) {
-      return showToast("As senhas não coincidem", "warning");
-    }
-    if (password.length < 8) {
-      return showToast("A senha deve ter pelo menos 8 caracteres", "warning");
-    }
+    if (password !== confirmPassword) return showToast("As senhas não coincidem", "warning");
+    if (password.length < 8) return showToast("A senha deve ter pelo menos 8 caracteres", "warning");
 
     setLoading(true);
     try {
@@ -106,21 +101,22 @@ export default function Register() {
             style={{ zIndex: 9999 }}
           >
             <div
-              className={`alert alert-${toast.type} alert-dismissible fade show shadow-lg d-flex align-items-center gap-3 rounded-4 border-0`}
+              className={`alert d-flex align-items-center gap-3 rounded-3 shadow-lg border-0`}
               style={{
                 background:
                   toast.type === "success"
-                    ? "#38bdf8"
+                    ? "#22c55e"
                     : toast.type === "danger"
-                    ? "#60a5fa"
+                    ? "#ef4444"
                     : toast.type === "warning"
-                    ? "#93c5fd"
+                    ? "#f59e0b"
                     : "#3b82f6",
-                color: "white",
+                color: "#fff",
+                fontWeight: 600,
               }}
             >
               <CheckCircle size={20} />
-              <div className="flex-grow-1 fw-semibold">{toast.message}</div>
+              <div className="flex-grow-1">{toast.message}</div>
               <button className="btn-close btn-close-white" onClick={() => setToast({ show: false })}></button>
             </div>
           </motion.div>
@@ -130,10 +126,7 @@ export default function Register() {
       {/* Fundo + Card */}
       <div
         className="min-vh-100 d-flex align-items-center justify-content-center p-4"
-        style={{
-          background: "#ffffff", // Fundo branco
-          color: "#007bff",      // Azul nos textos
-        }}
+        style={{ backgroundColor: "#0f172a", color: "#ffffff" }}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -142,71 +135,68 @@ export default function Register() {
           style={{ maxWidth: "460px" }}
         >
           <div
-            className="card border-0 shadow-lg"
+            className="card shadow-lg border border-black"
             style={{
-              backgroundColor: "#f8f9fa",
+              backgroundColor: "#1e293b",
               borderRadius: "1.5rem",
               padding: "2rem",
+              color: "#ffffff",
             }}
           >
+            {/* Logo + Título */}
             <div className="text-center mb-5">
               <motion.div
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 className="d-inline-flex align-items-center justify-content-center p-3 rounded-circle mb-4"
-                style={{
-                  background: "#dbeafe",
-                  width: "80px",
-                  height: "80px",
-                  margin: "0 auto",
-                }}
+                style={{ background: "#0ea5e9", width: "80px", height: "80px" }}
               >
-                <Shield size={40} style={{ color: "#007bff" }} />
+                <Shield size={40} style={{ color: "#0f172a" }} />
               </motion.div>
-              <h2 className="fw-bold mb-2" style={{ color: "#007bff" }}>Criar Conta</h2>
-              <p style={{ color: "#555555" }}>Cadastre-se com segurança e MFA</p>
+              <h2 className="fw-bold mb-2" style={{ color: "#0ea5e9" }}>Criar Conta</h2>
+              <p style={{ color: "#cbd5e1" }}>Cadastre-se com segurança e MFA</p>
             </div>
 
             <form onSubmit={handleSubmit}>
               {/* Usuário */}
-              <div className="mb-3 text-start">
-                <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Usuário</label>
+              <div className="mb-3">
+                <label className="form-label fw-semibold">Usuário</label>
                 <input
                   type="text"
-                  className="form-control"
-                  placeholder="seu_usuario"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   disabled={loading || mfaRequired}
-                  required
+                  className="form-control"
+                  placeholder="seu_usuario"
                   style={{
                     borderRadius: "0.75rem",
-                    border: "1px solid #007bff",
-                    backgroundColor: "#ffffff",
-                    color: "#007bff",
+                    border: "1px solid #0ea5e9",
+                    backgroundColor: "#0f172a",
+                    color: "#ffffff",
                     padding: "0.75rem 1rem",
+                    boxShadow: "0 0 8px #0ea5e9",
                   }}
                 />
               </div>
 
               {/* Email */}
-              <div className="mb-3 text-start">
-                <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Email</label>
+              <div className="mb-3">
+                <label className="form-label fw-semibold">Email</label>
                 <input
                   type="email"
-                  className="form-control"
-                  placeholder="seu@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={loading || mfaRequired}
-                  required
+                  className="form-control"
+                  placeholder="seu@email.com"
                   style={{
                     borderRadius: "0.75rem",
-                    border: "1px solid #007bff",
-                    backgroundColor: "#ffffff",
-                    color: "#007bff",
+                    border: "1px solid #0ea5e9",
+                    backgroundColor: "#0f172a",
+                    color: "#ffffff",
                     padding: "0.75rem 1rem",
+                    boxShadow: "0 0 8px #0ea5e9",
                   }}
                 />
               </div>
@@ -214,42 +204,42 @@ export default function Register() {
               {/* Senha */}
               {!mfaRequired && (
                 <>
-                  <div className="mb-3 text-start">
-                    <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Senha</label>
+                  <div className="mb-3">
+                    <label className="form-label fw-semibold">Senha</label>
                     <input
                       type={showPassword ? "text" : "password"}
-                      className="form-control"
-                      placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       disabled={loading}
-                      required
+                      className="form-control"
+                      placeholder="••••••••"
                       style={{
                         borderRadius: "0.75rem",
-                        border: "1px solid #007bff",
-                        backgroundColor: "#ffffff",
-                        color: "#007bff",
+                        border: "1px solid #0ea5e9",
+                        backgroundColor: "#0f172a",
+                        color: "#ffffff",
                         padding: "0.75rem 1rem",
+                        boxShadow: "0 0 8px #0ea5e9",
                       }}
                     />
                   </div>
 
-                  <div className="mb-3 text-start">
-                    <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Confirmar Senha</label>
+                  <div className="mb-3">
+                    <label className="form-label fw-semibold">Confirmar Senha</label>
                     <input
                       type={showConfirmPassword ? "text" : "password"}
-                      className="form-control"
-                      placeholder="••••••••"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       disabled={loading}
-                      required
+                      className="form-control"
+                      placeholder="••••••••"
                       style={{
                         borderRadius: "0.75rem",
-                        border: "1px solid #007bff",
-                        backgroundColor: "#ffffff",
-                        color: "#007bff",
+                        border: "1px solid #0ea5e9",
+                        backgroundColor: "#0f172a",
+                        color: "#ffffff",
                         padding: "0.75rem 1rem",
+                        boxShadow: "0 0 8px #0ea5e9",
                       }}
                     />
                   </div>
@@ -259,28 +249,28 @@ export default function Register() {
               {/* MFA */}
               {mfaRequired && (
                 <div className="mb-3 text-center">
-                  <label className="form-label fw-medium mb-2" style={{ color: "#007bff" }}>
-                    <Smartphone size={18} style={{ color: "#007bff" }} /> Código MFA
+                  <label className="form-label fw-semibold">
+                    <Smartphone size={18} /> Código MFA
                   </label>
                   <input
                     type="text"
-                    className="form-control text-center fw-bold"
-                    placeholder="______"
                     value={mfaCode}
                     onChange={(e) => setMfaCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
                     maxLength={6}
                     autoFocus
+                    className="form-control text-center fw-bold"
                     style={{
                       letterSpacing: "0.5rem",
                       fontSize: "1.5rem",
                       borderRadius: "0.75rem",
-                      border: "1px solid #007bff",
-                      color: "#007bff",
-                      backgroundColor: "#ffffff",
+                      border: "1px solid #0ea5e9",
+                      backgroundColor: "#0f172a",
+                      color: "#ffffff",
                       padding: "0.5rem",
+                      boxShadow: "0 0 8px #0ea5e9",
                     }}
                   />
-                  <small className="d-block mt-2" style={{ color: "#555555" }}>Abra seu app autenticador</small>
+                  <small className="d-block mt-2" style={{ color: "#cbd5e1" }}>Abra seu app autenticador</small>
                 </div>
               )}
 
@@ -292,26 +282,25 @@ export default function Register() {
                 disabled={loading}
                 className="btn w-100 fw-bold"
                 style={{
-                  backgroundColor: "#007bff",
+                  backgroundColor: "#0ea5e9",
                   border: "none",
                   borderRadius: "1rem",
                   height: "52px",
-                  color: "#ffffff",
+                  color: "#0f172a",
                   marginTop: "1rem",
                 }}
               >
                 {loading ? "Processando..." : mfaRequired ? "Verificar MFA" : "Criar Conta"}
               </motion.button>
 
-              {/* Link para login */}
               {!mfaRequired && (
-                <div className="text-center mt-3">
-                  <p style={{ color: "#555555", margin: 0 }}>
+                <div className="text-center mt-3 small">
+                  <p style={{ color: "#cbd5e1", margin: 0 }}>
                     Já tem conta?{' '}
                     <button
-                      className="btn btn-link p-0 fw-medium"
+                      className="btn btn-link p-0"
                       onClick={() => navigate("/login")}
-                      style={{ color: "#007bff" }}
+                      style={{ color: "#0ea5e9" }}
                     >
                       Faça login
                     </button>
@@ -322,7 +311,7 @@ export default function Register() {
           </div>
 
           {/* Footer */}
-          <div className="text-center mt-4" style={{ color: "#555555" }}>
+          <div className="text-center mt-4 small" style={{ color: "#94a3b8" }}>
             © 2025 BugBounty TCC. Todos os direitos reservados.
           </div>
         </motion.div>

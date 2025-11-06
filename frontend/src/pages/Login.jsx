@@ -94,21 +94,22 @@ export default function Login() {
             style={{ zIndex: 9999 }}
           >
             <div
-              className={`alert alert-${toast.type} alert-dismissible fade show shadow-lg d-flex align-items-center gap-3 rounded-4 border-0`}
+              className={`alert alert-${toast.type} d-flex align-items-center gap-3 rounded-3 shadow-lg border-0`}
               style={{
                 background:
                   toast.type === "success"
-                    ? "#38bdf8"
+                    ? "#22c55e"
                     : toast.type === "danger"
-                    ? "#60a5fa"
+                    ? "#ef4444"
                     : toast.type === "warning"
-                    ? "#93c5fd"
+                    ? "#f59e0b"
                     : "#3b82f6",
-                color: "white",
+                color: "#fff",
+                fontWeight: 600,
               }}
             >
               <Zap size={20} />
-              <div className="flex-grow-1 fw-semibold">{toast.message}</div>
+              <div className="flex-grow-1">{toast.message}</div>
               <button className="btn-close btn-close-white" onClick={() => setToast({ show: false })}></button>
             </div>
           </motion.div>
@@ -118,10 +119,7 @@ export default function Login() {
       {/* Fundo + Card */}
       <div
         className="min-vh-100 d-flex align-items-center justify-content-center p-4"
-        style={{
-          background: "#ffffff", // Fundo branco
-          color: "#007bff",      // Azul nos textos
-        }}
+        style={{ backgroundColor: "#0f172a", color: "#ffffff" }}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -130,161 +128,129 @@ export default function Login() {
           style={{ maxWidth: "420px" }}
         >
           <div
-            className="card border-0 shadow-lg"
+            className="card shadow-lg border border-black"
             style={{
-              backgroundColor: "#f8f9fa",
+              backgroundColor: "#1e293b",
               borderRadius: "1.5rem",
               padding: "2rem",
+              color: "#ffffff",
             }}
           >
-            <div className="card-body text-center">
-              {/* Logo + Título */}
+            {/* Logo + Título */}
+            <div className="text-center mb-4">
               <motion.div
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="d-inline-flex align-items-center justify-content-center p-3 rounded-circle mb-4"
-                style={{
-                  background: "#dbeafe", // azul claro suave
-                  width: "80px",
-                  height: "80px",
-                  margin: "0 auto",
-                }}
+                className="d-inline-flex align-items-center justify-content-center p-3 rounded-circle mb-3"
+                style={{ background: "#0ea5e9", width: "80px", height: "80px" }}
               >
-                <Shield size={40} style={{ color: "#007bff" }} />
+                <Shield size={40} style={{ color: "#0f172a" }} />
               </motion.div>
-              <h2 className="fw-bold mb-2" style={{ color: "#007bff" }}>BugBounty TCC</h2>
-              <p style={{ color: "#555555" }}>Login seguro com MFA</p>
+              <h2 className="fw-bold mb-2" style={{ color: "#0ea5e9" }}>BugBounty TCC</h2>
+              <p style={{ color: "#cbd5e1" }}>Login seguro com MFA</p>
+            </div>
 
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="mt-4">
-                {/* Usuário/Email */}
-                <div className="mb-3 text-start">
-                  <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Usuário ou Email</label>
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="mt-3">
+              <div className="mb-3">
+                <label className="form-label fw-semibold">Usuário ou Email</label>
+                <input
+                  type="text"
+                  value={usernameOrEmail}
+                  onChange={(e) => setUsernameOrEmail(e.target.value)}
+                  disabled={loading || mfaRequired}
+                  className="form-control"
+                  placeholder="usuario ou email@dominio.com"
+                  style={{
+                    borderRadius: "0.75rem",
+                    border: "1px solid #0ea5e9",
+                    backgroundColor: "#0f172a",
+                    color: "#ffffff",
+                    padding: "0.75rem 1rem",
+                    boxShadow: "0 0 8px #0ea5e9",
+                  }}
+                />
+              </div>
+
+              {!mfaRequired && (
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">Senha</label>
                   <input
-                    type="text"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    disabled={loading}
                     className="form-control"
-                    placeholder="usuario ou email@dominio.com"
-                    value={usernameOrEmail}
-                    onChange={(e) => setUsernameOrEmail(e.target.value)}
-                    disabled={loading || mfaRequired}
-                    required
+                    placeholder="••••••••"
                     style={{
                       borderRadius: "0.75rem",
-                      border: "1px solid #007bff",
-                      backgroundColor: "#ffffff",
-                      color: "#007bff",
+                      border: "1px solid #0ea5e9",
+                      backgroundColor: "#0f172a",
+                      color: "#ffffff",
                       padding: "0.75rem 1rem",
-                      fontSize: "1rem",
-                      outline: "none",
+                      boxShadow: "0 0 8px #0ea5e9",
                     }}
-                    onFocus={(e) => e.target.style.boxShadow = "0 0 8px rgba(0,123,255,0.4)"}
-                    onBlur={(e) => e.target.style.boxShadow = "none"}
                   />
                 </div>
+              )}
 
-                {/* Senha */}
-                {!mfaRequired && (
-                  <div className="mb-3 text-start">
-                    <label className="form-label fw-medium mb-1" style={{ color: "#007bff" }}>Senha</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="••••••••"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      disabled={loading}
-                      required
-                      style={{
-                        borderRadius: "0.75rem",
-                        border: "1px solid #007bff",
-                        backgroundColor: "#ffffff",
-                        color: "#007bff",
-                        padding: "0.75rem 1rem",
-                        fontSize: "1rem",
-                        outline: "none",
-                      }}
-                      onFocus={(e) => e.target.style.boxShadow = "0 0 8px rgba(0,123,255,0.4)"}
-                      onBlur={(e) => e.target.style.boxShadow = "none"}
-                    />
-                  </div>
-                )}
+              {mfaRequired && (
+                <div className="mb-3 text-center">
+                  <label className="form-label fw-semibold">
+                    <Smartphone size={18} /> Código MFA
+                  </label>
+                  <input
+                    type="text"
+                    value={mfaCode}
+                    onChange={(e) => setMfaCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                    maxLength={6}
+                    autoFocus
+                    className="form-control text-center fw-bold"
+                    style={{
+                      letterSpacing: "0.5rem",
+                      fontSize: "1.5rem",
+                      borderRadius: "0.75rem",
+                      border: "1px solid #0ea5e9",
+                      padding: "0.5rem",
+                      backgroundColor: "#0f172a",
+                      color: "#ffffff",
+                      boxShadow: "0 0 8px #0ea5e9",
+                    }}
+                  />
+                  <small className="d-block mt-1" style={{ color: "#cbd5e1" }}>Abra seu app autenticador</small>
+                </div>
+              )}
 
-                {/* MFA */}
-                {mfaRequired && (
-                  <div className="mb-3 text-center">
-                    <label className="form-label fw-medium mb-2" style={{ color: "#007bff" }}>
-                      <Smartphone size={18} style={{ color: "#007bff" }} /> Código MFA
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-center fw-bold"
-                      placeholder="______"
-                      value={mfaCode}
-                      onChange={(e) => setMfaCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                      maxLength={6}
-                      autoFocus
-                      style={{
-                        letterSpacing: "0.5rem",
-                        fontSize: "1.5rem",
-                        borderRadius: "0.75rem",
-                        border: "1px solid #007bff",
-                        padding: "0.5rem",
-                        color: "#007bff",
-                        backgroundColor: "#ffffff",
-                        outline: "none",
-                      }}
-                      onFocus={(e) => e.target.style.boxShadow = "0 0 8px rgba(0,123,255,0.4)"}
-                      onBlur={(e) => e.target.style.boxShadow = "none"}
-                    />
-                    <small style={{ color: "#555555", display: "block", marginTop: "0.5rem" }}>Abra seu app autenticador</small>
-                  </div>
-                )}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                disabled={loading}
+                className="btn w-100 fw-bold"
+                style={{
+                  backgroundColor: "#0ea5e9",
+                  border: "none",
+                  borderRadius: "1rem",
+                  height: "52px",
+                  color: "#0f172a",
+                  marginTop: "1rem",
+                }}
+              >
+                {loading ? "Processando..." : mfaRequired ? "Verificar MFA" : "Entrar"}
+              </motion.button>
 
-                {/* Botão */}
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  disabled={loading}
-                  className="btn w-100 fw-bold"
-                  style={{
-                    backgroundColor: "#007bff",
-                    border: "none",
-                    borderRadius: "1rem",
-                    height: "52px",
-                    color: "#ffffff",
-                    marginTop: "1rem",
-                  }}
-                >
-                  {loading ? "Processando..." : mfaRequired ? "Verificar MFA" : "Entrar"}
-                </motion.button>
+              {!mfaRequired && (
+                <div className="d-flex justify-content-between mt-3 small">
+                  <button className="btn btn-link text-info p-0" onClick={() => navigate("/forgot-password")}>Esqueci a senha</button>
+                  <button className="btn btn-link text-info p-0" onClick={() => navigate("/register")}>Criar conta</button>
+                </div>
+              )}
+            </form>
 
-                {/* Links */}
-                {!mfaRequired && (
-                  <div className="d-flex justify-content-between mt-3 text-sm">
-                    <button
-                      className="btn btn-link p-0 fw-medium"
-                      onClick={() => navigate("/forgot-password")}
-                      style={{ color: "#007bff" }}
-                    >
-                      Esqueci a senha
-                    </button>
-                    <button
-                      className="btn btn-link p-0 fw-medium"
-                      onClick={() => navigate("/register")}
-                      style={{ color: "#007bff" }}
-                    >
-                      Criar conta
-                    </button>
-                  </div>
-                )}
-              </form>
+            <div className="text-center mt-4 small" style={{ color: "#94a3b8" }}>
+              © 2025 BugBounty TCC. Todos os direitos reservados.
             </div>
-          </div>
-
-          <div className="text-center mt-4 small" style={{ color: "#555555" }}>
-            © 2025 BugBounty TCC. Todos os direitos reservados.
           </div>
         </motion.div>
       </div>
