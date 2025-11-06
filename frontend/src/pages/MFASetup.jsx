@@ -1,143 +1,127 @@
-// src/pages/MFASetup.jsx
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import { setupMfa } from "../api/auth";
+// src/pages/MFA.jsx
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle, AlertCircle, Key, RefreshCw } from 'lucide-react';
+import axios from '../api/axios';
 
-// CORREÇÃO: Importação nomeada (qrcode.react v1+ usa export named)
-import { QRCodeCanvas } from "qrcode.react";
-
-import Toast from "../components/Toast";
-import LoadingSpinner from "../components/LoadingSpinner";
-import { motion } from "framer-motion";
-import { Shield, Copy, Check } from "lucide-react";
-
-export default function MFASetup() {
-  const [qrCodeUrl, setQrCodeUrl] = useState("");
-  const [secret, setSecret] = useState("");
+export default function MFA() {
+  const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
-  const [toast, setToast] = useState({ show: false, message: "", type: "info" });
-  const [copied, setCopied] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+  const [resendCountdown, setResendCountdown] = useState(30);
+  const countdownRef = useRef(null);
 
-  const { user } = useAuth();
-  const navigate = useNavigate();
-
-  const showToast = (msg, type = "info") => {
+  const showToast = (msg, type = 'success') => {
     setToast({ show: true, message: msg, type });
-    setTimeout(() => setToast({ show: false, message: "", type: "info" }), 4000);
+    setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 4000);
   };
 
-  const handleSetup = async () => {
-    if (!user?.username) return showToast("Usuário não encontrado", "danger");
+  useEffect(() => {
+    if (resendCountdown > 0) {
+      countdownRef.current = setInterval(() => setResendCountdown(prev => prev - 1), 1000);
+    } else {
+      clearInterval(countdownRef.current);
+    }
+    return () => clearInterval(countdownRef.current);
+  }, [resendCountdown]);
+
+  const handleSubmit = async () => {
+    if (!code) return showToast('Digite o código MFA', 'warning');
     setLoading(true);
     try {
-      const res = await setupMfa(user.username);
-      setQrCodeUrl(res.data.otpAuthUrl);
-      setSecret(res.data.secret);
-      showToast("QR Code gerado! Escaneie com seu app.", "success");
+      // Ajuste a rota de validação MFA conforme seu backend
+      const { data } = await axios.post('/auth/mfa/verify', { code });
+      showToast('Código válido! Redirecionando...', 'success');
+      setTimeout(() => window.location.href = '/dashboard', 1500);
     } catch (err) {
-      showToast(err.response?.data?.error || "Erro ao configurar MFA", "danger");
+      showToast(err.response?.data?.message || 'Código inválido', 'danger');
     } finally {
       setLoading(false);
     }
   };
 
-  const copySecret = async () => {
+  const handleResend = async () => {
+    setResendCountdown(30);
     try {
-      await navigator.clipboard.writeText(secret);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      await axios.post('/auth/mfa/resend');
+      showToast('Código reenviado!', 'success');
     } catch {
-      showToast("Falha ao copiar", "danger");
+      showToast('Erro ao reenviar código', 'danger');
     }
   };
 
-  if (loading) return <LoadingSpinner text="Gerando QR Code..." />;
-
   return (
-    <>
-      {toast.show && <Toast message={toast.message} type={toast.type} onClose={() => setToast({ show: false })} />}
-
-      <div className="container py-5">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="row justify-content-center"
-        >
-          <div className="col-lg-6">
-            <div className="card border-0 shadow-lg rounded-3 overflow-hidden">
-              <div
-                className="card-header bg-gradient text-white text-center py-4"
-                style={{
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                }}
-              >
-                <Shield size={36} className="mb-2" />
-                <h3 className="fw-bold mb-0">Configurar Autenticação de Dois Fatores</h3>
-              </div>
-
-              <div className="card-body p-5 text-center">
-                {!qrCodeUrl ? (
-                  <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }}>
-                    <p className="text-muted mb-4">Proteja sua conta com MFA</p>
-                    <button
-                      onClick={handleSetup}
-                      className="btn btn-primary btn-lg rounded-pill px-5 d-flex align-items-center gap-2 mx-auto"
-                    >
-                      <Shield size={20} /> Iniciar Configuração
-                    </button>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ type: "spring" }}
-                  >
-                    <div className="bg-white p-4 rounded-3 shadow-sm d-inline-block mb-4">
-                      <QRCodeCanvas
-                        value={qrCodeUrl}
-                        size={220}
-                        level="H"
-                        includeMargin
-                        className="rounded"
-                      />
-                    </div>
-
-                    <div className="bg-light p-3 rounded-3 mb-4">
-                      <p className="small text-muted mb-2">
-                        <strong>Chave secreta (backup):</strong>
-                      </p>
-                      <div className="d-flex align-items-center gap-2 justify-content-center">
-                        <code className="bg-white px-3 py-2 rounded font-monospace text-break">
-                          {secret}
-                        </code>
-                        <button
-                          onClick={copySecret}
-                          className="btn btn-sm btn-outline-secondary"
-                          title="Copiar chave"
-                        >
-                          {copied ? (
-                            <Check size={16} className="text-success" />
-                          ) : (
-                            <Copy size={16} />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => navigate("/dashboard")}
-                      className="btn btn-success btn-lg rounded-pill px-5 d-flex align-items-center gap-2 mx-auto"
-                    >
-                      <Check size={20} /> Concluído
-                    </button>
-                  </motion.div>
-                )}
-              </div>
+    <div className="container py-5" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* Toast */}
+      <AnimatePresence>
+        {toast.show && (
+          <motion.div
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 300, opacity: 0 }}
+            className="position-fixed top-0 end-0 p-3"
+            style={{ zIndex: 1055 }}
+          >
+            <div
+              className={`alert alert-${toast.type} alert-dismissible fade show d-flex align-items-center gap-2`}
+              role="alert"
+              style={{ borderRadius: '1rem', fontWeight: 500, border: '1px solid black', background: '#e9ecef' }}
+            >
+              {toast.type === 'success' ? <CheckCircle size={18} /> : <AlertCircle size={18} />}
+              <div>{toast.message}</div>
+              <button type="button" className="btn-close" onClick={() => setToast({ show: false })}></button>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Card MFA */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="card p-4"
+        style={{ borderRadius: '1.5rem', border: '1px solid black', background: '#e9ecef', maxWidth: '400px', width: '100%' }}
+      >
+        <div className="text-center mb-4">
+          <h2 className="fw-bold d-flex align-items-center justify-content-center gap-2">
+            <Key size={36} /> Autenticação MFA
+          </h2>
+          <p className="text-muted">Digite o código enviado para seu dispositivo</p>
+        </div>
+
+        <div className="mb-3">
+          <div className="input-group" style={{ border: '1px solid black', borderRadius: '0.5rem', overflow: 'hidden', background: '#f8f9fa' }}>
+            <span className="input-group-text" style={{ border: 'none', background: 'transparent' }}><Key size={18} /></span>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Código MFA"
+              value={code}
+              onChange={e => setCode(e.target.value)}
+              style={{ border: 'none', background: 'transparent' }}
+            />
           </div>
-        </motion.div>
-      </div>
-    </>
+        </div>
+
+        <div className="d-grid gap-2 mb-3">
+          <button
+            className="btn"
+            onClick={handleSubmit}
+            disabled={loading}
+            style={{ border: '1px solid black', background: '#f8f9fa' }}
+          >
+            {loading ? 'Verificando...' : 'Enviar Código'}
+          </button>
+        </div>
+
+        <div className="text-center text-muted">
+          {resendCountdown > 0 ? (
+            <span>Reenviar código em {resendCountdown}s</span>
+          ) : (
+            <button className="btn btn-link p-0" onClick={handleResend}><RefreshCw size={16} /> Reenviar código</button>
+          )}
+        </div>
+      </motion.div>
+    </div>
   );
 }

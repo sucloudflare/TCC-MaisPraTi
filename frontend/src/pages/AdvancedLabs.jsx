@@ -1,11 +1,11 @@
 // src/pages/AdvancedLabs.jsx
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import api from '../api/client';
 import Toast from '../components/Toast';
 import LoadingSpinner from '../components/LoadingSpinner';
 import EmptyState from '../components/EmptyState';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Copy, Check, Filter, Search, Beaker, Zap, X } from 'lucide-react';
+import { Send, Copy, Check, Filter, Search, Beaker, Zap } from 'lucide-react';
 
 const labs = [
   { id: "xxe", name: "XXE OOB", endpoint: "/api/vulnerabilities/xxe/oob", method: "POST", type: "xml", hint: "Use entidade externa para exfiltrar /etc/passwd", difficulty: "Hard", category: "Injection" },
@@ -101,19 +101,19 @@ export default function AdvancedLabs() {
   })[d] || 'bg-secondary text-white';
 
   const placeholder = selected.type === 'xml'
-    ? `<?xml version="1.0"?>\n<!DOCTYPE root [ ... ]>\n<root>...\n</root>`
+    ? `<?xml version="1.0"?>\n<!DOCTYPE root [ ... ]>\n<root>...</root>`
     : selected.header ? 'Bearer SEU_JWT_AQUI' : selected.method === 'GET' ? 'parâmetro' : 'Payload JSON ou texto';
 
   if (loading && !response) return <LoadingSpinner text="Executando request..." />;
 
   return (
-    <div className="min-vh-100 bg-light">
+    <div className="min-vh-100" style={{ background: '#f1f3f5' }}>
       <AnimatePresence>
         {toast.show && <Toast message={toast.message} type={toast.type} onClose={() => setToast({ show: false })} />}
       </AnimatePresence>
 
       {/* Header */}
-      <header className="bg-white shadow-sm border-bottom sticky-top">
+      <header className="sticky-top" style={{ borderBottom: '1px solid black', background: '#e9ecef' }}>
         <div className="container py-4 d-flex justify-content-between align-items-center">
           <div>
             <h1 className="h4 fw-bold d-flex align-items-center gap-2">
@@ -125,7 +125,8 @@ export default function AdvancedLabs() {
             key={completedLabs.length}
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            className="badge bg-primary fs-6 rounded-pill"
+            className="badge fs-6 rounded-pill"
+            style={{ background: '#f8f9fa', border: '1px solid black', color: '#000' }}
           >
             {completedLabs.length}/{labs.length} concluídos
           </motion.span>
@@ -136,27 +137,27 @@ export default function AdvancedLabs() {
         <div className="row g-4">
           {/* Sidebar */}
           <div className="col-lg-4">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="card border-0 shadow-sm sticky-top" style={{ top: '1rem', borderRadius: '1rem' }}>
-              <div className="card-header bg-white">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="card" style={{ borderRadius: '1rem', border: '1px solid black', background: '#e9ecef', top: '1rem', position: 'sticky' }}>
+              <div className="card-header" style={{ background: '#e9ecef', borderBottom: '1px solid black' }}>
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <strong className="d-flex align-items-center gap-2">
                     <Filter size={18} /> Laboratórios
                   </strong>
                   <small className="text-muted">{filteredLabs.length}</small>
                 </div>
-                <div className="input-group mb-3">
-                  <span className="input-group-text bg-light border-end-0"><Search size={16} /></span>
-                  <input type="text" className="form-control border-start-0" placeholder="Buscar lab..." value={filter.search} onChange={e => setFilter({ ...filter, search: e.target.value })} />
+                <div className="input-group mb-3" style={{ border: '1px solid black', borderRadius: '0.5rem', background: '#f8f9fa' }}>
+                  <span className="input-group-text" style={{ border: 'none', background: 'transparent' }}><Search size={16} /></span>
+                  <input type="text" className="form-control" placeholder="Buscar lab..." value={filter.search} onChange={e => setFilter({ ...filter, search: e.target.value })} style={{ border: 'none', background: 'transparent' }} />
                 </div>
                 <div className="row g-2">
                   <div className="col-12">
-                    <select className="form-select form-select-sm" value={filter.category} onChange={e => setFilter({ ...filter, category: e.target.value })}>
+                    <select className="form-select" value={filter.category} onChange={e => setFilter({ ...filter, category: e.target.value })} style={{ border: '1px solid black', background: '#f8f9fa' }}>
                       <option value="All">Todas as categorias</option>
                       {[...new Set(labs.map(l => l.category))].map(c => <option key={c} value={c}>{c}</option>)}
                     </select>
                   </div>
                   <div className="col-12">
-                    <select className="form-select form-select-sm" value={filter.difficulty} onChange={e => setFilter({ ...filter, difficulty: e.target.value })}>
+                    <select className="form-select" value={filter.difficulty} onChange={e => setFilter({ ...filter, difficulty: e.target.value })} style={{ border: '1px solid black', background: '#f8f9fa' }}>
                       <option value="All">Todas as dificuldades</option>
                       <option value="Easy">Fácil</option>
                       <option value="Medium">Médio</option>
@@ -180,8 +181,8 @@ export default function AdvancedLabs() {
                         key={lab.id}
                         whileHover={{ x: 4 }}
                         onClick={() => { setSelected(lab); resetLab(); }}
-                        className={`list-group-item list-group-item-action text-start ${active ? 'active' : ''} border-0`}
-                        style={{ borderRadius: '0.5rem', margin: '0.25rem' }}
+                        className={`list-group-item list-group-item-action text-start ${active ? 'active' : ''}`}
+                        style={{ borderRadius: '0.5rem', margin: '0.25rem', border: '1px solid black', background: '#f8f9fa' }}
                       >
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="d-flex align-items-center gap-2">
@@ -204,22 +205,22 @@ export default function AdvancedLabs() {
 
           {/* Main */}
           <div className="col-lg-8">
-            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="card border-0 shadow-sm" style={{ borderRadius: '1rem' }}>
-              <div className="card-header bg-white d-flex justify-content-between align-items-start flex-wrap gap-2">
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="card" style={{ borderRadius: '1rem', border: '1px solid black', background: '#e9ecef' }}>
+              <div className="card-header d-flex justify-content-between align-items-start flex-wrap gap-2" style={{ background: '#e9ecef', borderBottom: '1px solid black' }}>
                 <div>
                   <h5 className="mb-1 d-flex align-items-center gap-2">
                     <Zap size={20} /> {selected.name}
                   </h5>
                   <p className="text-muted small mb-2">{selected.hint}</p>
                   <div className="d-flex flex-wrap gap-2">
-                    <span className="badge bg-secondary small">Endpoint: <code className="ms-1">{selected.endpoint}</code></span>
-                    <span className={`badge ${getDifficultyColor(selected.difficulty)} small`}>{selected.difficulty}</span>
-                    {selected.header && <span className="badge bg-warning text-dark small">Header</span>}
+                    <span className="badge rounded-pill bg-secondary small">Endpoint: <code className="ms-1">{selected.endpoint}</code></span>
+                    <span className={`badge rounded-pill ${getDifficultyColor(selected.difficulty)} small`}>{selected.difficulty}</span>
+                    {selected.header && <span className="badge rounded-pill bg-warning text-dark small">Header</span>}
                   </div>
                 </div>
                 <div className="d-flex gap-2">
-                  <button onClick={resetLab} className="btn btn-outline-secondary btn-sm">Limpar</button>
-                  <button onClick={send} disabled={loading} className="btn btn-primary btn-sm d-flex align-items-center gap-1">
+                  <button onClick={resetLab} className="btn" style={{ border: '1px solid black', background: '#f8f9fa' }}>Limpar</button>
+                  <button onClick={send} disabled={loading} className="btn d-flex align-items-center gap-1" style={{ border: '1px solid black', background: '#f8f9fa' }}>
                     <Send style={{ width: '16px', height: '16px' }} />
                     {loading ? 'Enviando...' : selected.method}
                   </button>
@@ -245,15 +246,16 @@ export default function AdvancedLabs() {
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       placeholder={placeholder}
-                      style={{ resize: 'none' }}
+                      style={{ resize: 'none', border: '1px solid black', background: '#f8f9fa' }}
                     />
                     <div className="d-flex justify-content-between mt-3">
-                      <button onClick={send} disabled={loading} className="btn btn-primary d-flex align-items-center gap-1">
+                      <button onClick={send} disabled={loading} className="btn d-flex align-items-center gap-1" style={{ border: '1px solid black', background: '#f8f9fa' }}>
                         <Send style={{ width: '16px', height: '16px' }} /> Enviar
                       </button>
                       <button
                         onClick={() => setInput(selected.type === 'xml' ? `<?xml version="1.0"?>\n<!DOCTYPE root [ ... ]>\n<root>...</root>` : 'Bearer ')}
-                        className="btn btn-outline-secondary btn-sm"
+                        className="btn"
+                        style={{ border: '1px solid black', background: '#f8f9fa' }}
                       >
                         Exemplo
                       </button>
@@ -264,13 +266,13 @@ export default function AdvancedLabs() {
                     <div className="d-flex justify-content-between align-items-center mb-2">
                       <h6 className="mb-0">Resposta</h6>
                       <div className="d-flex gap-1">
-                        <button onClick={copyResponse} className="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1">
+                        <button onClick={copyResponse} className="btn d-flex align-items-center gap-1" style={{ border: '1px solid black', background: '#f8f9fa' }}>
                           <Copy style={{ width: '16px', height: '16px' }} /> Copiar
                         </button>
-                        <button onClick={() => setResponse('')} className="btn btn-outline-danger btn-sm">Limpar</button>
+                        <button onClick={() => setResponse('')} className="btn" style={{ border: '1px solid black', background: '#f8f9fa' }}>Limpar</button>
                       </div>
                     </div>
-                    <div className="bg-light border rounded p-3" style={{ maxHeight: '400px', overflow: 'auto' }}>
+                    <div className="p-3" style={{ maxHeight: '400px', overflow: 'auto', border: '1px solid black', borderRadius: '0.5rem', background: '#f8f9fa' }}>
                       {response ? (
                         <pre className="mb-0 small text-wrap font-monospace">{response}</pre>
                       ) : (

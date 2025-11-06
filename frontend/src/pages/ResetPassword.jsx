@@ -3,78 +3,132 @@ import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { resetPassword } from "../api/auth";
 import Toast from "../components/Toast";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Lock, CheckCircle } from "lucide-react";
 
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token") || "";
   const [newPassword, setNewPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [toast, setToast] = useState({ show: false, message: "", type: "success" });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const showToast = (message, type = "success") => {
+    setToast({ show: true, message, type });
+    setTimeout(() => setToast({ show: false }), 4000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!token || !newPassword) return setMessage("Token ou senha inválidos");
+    if (!token || !newPassword) return showToast("Token ou senha inválidos", "danger");
     setLoading(true);
     try {
       const res = await resetPassword(token, newPassword);
-      setMessage(res.data.message || "Senha redefinida com sucesso!");
+      showToast(res.data.message || "Senha redefinida com sucesso!", "success");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
-      setMessage(err?.response?.data?.error || "Erro ao redefinir");
+      showToast(err?.response?.data?.error || "Erro ao redefinir", "danger");
     } finally {
       setLoading(false);
     }
   };
 
+  if (loading) return <Toast message="Redefinindo..." type="info" />;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="min-vh-100 d-flex align-items-center justify-content-center bg-light p-3"
-    >
-      <div className="card border-0 shadow-lg p-5" style={{ maxWidth: "420px", width: "100%", borderRadius: "1.5rem" }}>
-        <div className="text-center mb-4">
-          <Lock size={48} className="text-primary mb-3" />
-          <h3 className="fw-bold">Redefinir Senha</h3>
-        </div>
-
-        {message && (
-          <div className={`alert alert-${message.includes("sucesso") ? "success" : "danger"} d-flex align-items-center gap-2`}>
-            {message.includes("sucesso") ? <CheckCircle /> : <AlertCircle />}
-            {message}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit}>
-          <input
-            type="password"
-            className="form-control form-control-lg rounded-pill mb-3 text-center"
-            placeholder="Nova senha"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            required
-            minLength={6}
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="btn btn-primary btn-lg w-100 rounded-pill d-flex align-items-center justify-content-center gap-2"
+    <>
+      {/* Toast */}
+      <AnimatePresence>
+        {toast.show && (
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+            className="position-fixed top-0 end-0 p-3"
+            style={{ zIndex: 9999 }}
           >
-            {loading ? (
-              <>
-                <div className="spinner-border spinner-border-sm" role="status"></div> Redefinindo...
-              </>
-            ) : (
-              <>
-                <Lock size={18} /> Confirmar
-              </>
-            )}
-          </button>
-        </form>
-      </div>
-    </motion.div>
+            <div
+              className={`alert d-flex align-items-center gap-3 rounded-3 shadow-lg border-0`}
+              style={{
+                background:
+                  toast.type === "success"
+                    ? "#22c55e"
+                    : toast.type === "danger"
+                    ? "#ef4444"
+                    : "#3b82f6",
+                color: "#fff",
+                fontWeight: 600,
+              }}
+            >
+              {toast.type === "success" ? <CheckCircle /> : <Lock />}
+              <div className="flex-grow-1">{toast.message}</div>
+              <button className="btn-close btn-close-white" onClick={() => setToast({ show: false })}></button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Fundo + Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="min-vh-100 d-flex align-items-center justify-content-center p-4"
+        style={{ backgroundColor: "#0f172a" }}
+      >
+        <div
+          className="card shadow-lg border-0"
+          style={{
+            maxWidth: "420px",
+            width: "100%",
+            borderRadius: "1.5rem",
+            backgroundColor: "#1e293b",
+            padding: "2rem",
+            color: "#fff",
+          }}
+        >
+          <div className="text-center mb-4">
+            <Lock size={48} style={{ color: "#0ea5e9", marginBottom: "1rem" }} />
+            <h3 className="fw-bold" style={{ color: "#0ea5e9" }}>Redefinir Senha</h3>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <input
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              required
+              placeholder="Nova senha"
+              className="form-control text-center fw-semibold mb-3"
+              style={{
+                borderRadius: "0.75rem",
+                border: "1px solid #0ea5e9",
+                backgroundColor: "#0f172a",
+                color: "#ffffff",
+                padding: "0.75rem 1rem",
+                boxShadow: "0 0 8px #0ea5e9",
+              }}
+            />
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              disabled={loading}
+              className="btn w-100 fw-bold"
+              style={{
+                backgroundColor: "#0ea5e9",
+                border: "none",
+                borderRadius: "1rem",
+                height: "52px",
+                color: "#0f172a",
+              }}
+            >
+              {loading ? "Redefinindo..." : "Confirmar"}
+            </motion.button>
+          </form>
+        </div>
+      </motion.div>
+    </>
   );
 }
