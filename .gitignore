@@ -16,3 +16,4 @@ dist/
 build/
 .vscode/
 .DS_Store
+backend/target/
