@@ -1,7 +1,7 @@
 package com.example.bugbounty.entity;
 
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "jobs")
 public class Job {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,26 +18,24 @@ public class Job {
     private String status;
     private String reportPath;
 
-    // 🆕 Adicionados para integração com UnifiedVulnerabilityController
     private String vulnerabilityType;
     private String severity;
 
-    // 🧩 Novos campos explicativos
     @Column(length = 1000)
-    private String description; // resumo da vulnerabilidade ou objetivo do teste
+    private String description;
 
     @Column(length = 500)
-    private String impact; // impacto potencial do ataque, ex: roubo de dados, DoS, etc.
+    private String impact;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    // Ligação bidirecional com Vulnerability
     @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
+    @JsonManagedReference // ✅ Permite que o Job traga as vulnerabilidades sem recursão
     private List<Vulnerability> vulnerabilities = new ArrayList<>();
 
-    // ======== GETTERS e SETTERS ========
-
+    // ===== Getters e Setters =====
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
