@@ -6,8 +6,7 @@
 <p>clica para assistir no YouTuber</p>
 
 
-[![Assistir vídeo](https://img.youtube.com/vi/llXEi6LX4zw/0.jpg)](https://www.youtube.com/watch?v=llXEi6LX4zw)
-
+[![Assistir vídeo](https://img.youtube.com/vi/-0daxvoFvI4/0.jpg)](https://www.youtube.com/watch?v=-0daxvoFvI4)
 
 
 <section>
