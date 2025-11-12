@@ -20187,3 +20187,6696 @@
 2025-11-11 16:22:21 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-11-11 16:22:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-11-11 16:22:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-11 16:44:55 [main] INFO  c.e.bugbounty.BugbountyApplication - Starting BugbountyApplication using Java 21.0.9-ea with PID 500238 (/home/edson/bug-bounty-tcc/backend/target/classes started by edson in /home/edson/bug-bounty-tcc/backend)
+2025-11-11 16:44:55 [main] DEBUG c.e.bugbounty.BugbountyApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-11-11 16:44:55 [main] INFO  c.e.bugbounty.BugbountyApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-11 16:44:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11 16:44:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78 ms. Found 4 JPA repository interfaces.
+2025-11-11 16:44:58 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-11 16:44:58 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-11 16:44:58 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-11-11 16:44:58 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-11 16:44:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2972 ms
+2025-11-11 16:44:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-11 16:44:58 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@37775bb1
+2025-11-11 16:44:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-11 16:44:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11 16:44:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-11-11 16:44:59 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-11 16:44:59 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11 16:44:59 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-11 16:44:59 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@37f71c05) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@5bd3ca3c)
+2025-11-11 16:44:59 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2dd8a273) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@59f76e56)
+2025-11-11 16:45:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11 16:45:00 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11 16:45:01 [main] INFO  c.e.b.service.VulnerabilityService - VulnerabilityService v9.9.9 INICIADO: 38 testes carregados
+2025-11-11 16:45:01 [main] INFO  c.example.bugbounty.config.AppConfig - ✅ Registrando WebSocket no endpoint /ws
+2025-11-11 16:45:01 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11 16:45:02 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@421c057a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16448827, org.springframework.security.web.context.SecurityContextHolderFilter@73ba3c4b, org.springframework.security.web.header.HeaderWriterFilter@333e01c6, org.springframework.web.filter.CorsFilter@2943e61c, org.springframework.security.web.authentication.logout.LogoutFilter@33319df0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a4199e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6fe55fcf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bab373c, org.springframework.security.web.access.ExceptionTranslationFilter@1e5921ec, org.springframework.security.web.access.intercept.AuthorizationFilter@7104b117]
+2025-11-11 16:45:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-11-11 16:45:02 [main] INFO  c.e.bugbounty.BugbountyApplication - Started BugbountyApplication in 7.849 seconds (process running for 8.344)
+2025-11-11 16:45:13 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-11 16:45:13 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-11 16:45:13 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-11 16:45:13 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-11 16:45:13 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2025-11-11 16:45:19 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 16:45:19 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 16:45:24 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:24 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        jobs
+        (created_at, description, impact, reportPath, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:38 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        jobs
+        (created_at, description, impact, reportPath, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 16:45:56 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:15 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-11 17:06:15 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2025-11-11 17:06:19 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 17:06:19 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:06:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        jobs
+        (created_at, description, impact, reportPath, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:05 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        jobs
+        (created_at, description, impact, reportPath, severity, status, targetUrl, vulnerabilityType) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:22 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 17:07:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:00 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-11-11 18:05:00 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.mfa_enabled,
+        u1_0.mfa_secret,
+        u1_0.password,
+        u1_0.recovery_codes,
+        u1_0.reset_token,
+        u1_0.reset_token_expiry,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:12 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:22 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 18:05:22 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        j1_0.id,
+        j1_0.created_at,
+        j1_0.description,
+        j1_0.impact,
+        j1_0.reportPath,
+        j1_0.severity,
+        j1_0.status,
+        j1_0.targetUrl,
+        j1_0.vulnerabilityType 
+    from
+        jobs j1_0
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:05:39 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.job_id,
+        v1_0.id,
+        v1_0.category,
+        v1_0.created_at,
+        v1_0.http_status,
+        v1_0.name,
+        v1_0.payload,
+        v1_0.responseDetails,
+        v1_0.result,
+        v1_0.severity,
+        v1_0.status,
+        v1_0.targetUrl,
+        v1_0.vulnerabilityType 
+    from
+        vulnerability v1_0 
+    where
+        v1_0.job_id=?
+2025-11-11 18:34:39 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 18:34:40 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 18:35:24 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 18:35:24 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.id,
+        l1_0.code,
+        l1_0.completed,
+        l1_0.name 
+    from
+        labs l1_0
+2025-11-11 23:01:02 [main] INFO  c.e.bugbounty.BugbountyApplication - Starting BugbountyApplication using Java 21.0.9-ea with PID 83826 (/home/edson/bug-bounty-tcc/backend/target/classes started by edson in /home/edson/bug-bounty-tcc/backend)
+2025-11-11 23:01:02 [main] DEBUG c.e.bugbounty.BugbountyApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-11-11 23:01:02 [main] INFO  c.e.bugbounty.BugbountyApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-11 23:01:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-11 23:01:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+2025-11-11 23:01:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-11 23:01:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-11 23:01:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-11-11 23:01:04 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-11 23:01:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1987 ms
+2025-11-11 23:01:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-11 23:01:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@565d7d2f
+2025-11-11 23:01:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-11 23:01:05 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-11 23:01:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-11-11 23:01:06 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-11 23:01:06 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-11 23:01:06 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-11 23:01:06 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@19ec5357) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@351d93bd)
+2025-11-11 23:01:06 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@61c5fd78) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@42503099)
+2025-11-11 23:01:07 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-11 23:01:07 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11 23:01:08 [main] INFO  c.e.b.service.VulnerabilityService - VulnerabilityService v9.9.9 INICIADO: 38 testes carregados
+2025-11-11 23:01:08 [main] INFO  c.example.bugbounty.config.AppConfig - ✅ Registrando WebSocket no endpoint /ws
+2025-11-11 23:01:08 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-11 23:01:09 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@493ed8e6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b897456, org.springframework.security.web.context.SecurityContextHolderFilter@4d1f6e1c, org.springframework.security.web.header.HeaderWriterFilter@304933cb, org.springframework.web.filter.CorsFilter@4dcc0e3d, org.springframework.security.web.authentication.logout.LogoutFilter@29becf8b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42c9f2cd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@797c67c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7fecc26f, org.springframework.security.web.access.ExceptionTranslationFilter@18f1a81a, org.springframework.security.web.access.intercept.AuthorizationFilter@16448827]
+2025-11-11 23:01:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-11-11 23:01:09 [main] INFO  c.e.bugbounty.BugbountyApplication - Started BugbountyApplication in 7.071 seconds (process running for 7.499)
+2025-11-11 23:30:21 [SpringApplicationShutdownHook] INFO  c.e.b.service.VulnerabilityService - VulnerabilityService v9.9.9 FINALIZADO COM SUCESSO.
+2025-11-11 23:30:21 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-11 23:30:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-11 23:30:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
