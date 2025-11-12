@@ -1,2 +1,4 @@
 # (cole o conteúdo acima)
 backend/target/
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
