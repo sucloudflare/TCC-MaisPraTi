@@ -2,3 +2,25 @@
 backend/target/
 !.mvn/wrapper/maven-wrapper.jar
 !.mvn/wrapper/maven-wrapper.jar
+
+# Java / Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Logs / temp
+*.log
+*.tmp
+
+# System
+.DS_Store
+
