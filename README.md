@@ -2,6 +2,169 @@
   <h1>🛡️ BugBounty API – Plataforma Avançada de Testes de Vulnerabilidades</h1>
 </header>
 <br>
+<br>
+
+
+<!-- 1. OOB -->
+  <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark border-bottom border-info">
+                    <h3 class="mb-0">1. Método OOB (Out-of-Band) – O maior “escudo” contra falsos positivos</h3>
+                </div>
+                <div class="card-body">
+                    <p>Quase todos os testes críticos usam <strong>OOB real via DNS/HTTP</strong> para domínio configurável (oast.me ou outro).</p>
+                    <pre><code class="language-java">String id = UUID.randomUUID().toString().substring(0, 12);
+oobTracking.putIfAbsent(id, url);</code></pre>
+                    <p>Poller ativo verifica o callback:</p>
+                    <pre><code class="language-java">HttpURLConnection conn = (HttpURLConnection) uri.toURL().openConnection();
+if (conn.getResponseCode() == 200) {
+    confirmedOobs.add(id);
+    markOOBVulnerable(url, id);
+}</code></pre>
+                    <h5>Isso significa que:</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-dark">O alvo precisa <strong>realmente</strong> fazer requisição externa para <code>id.oast.me</code></li>
+                        <li class="list-group-item bg-dark">Não basta refletir o payload</li>
+                        <li class="list-group-item bg-dark">Não basta dar 200</li>
+                        <li class="list-group-item bg-dark">Não basta vazar no body</li>
+                        <li class="list-group-item bg-dark">Tem que ter <strong>exfiltração comprovada via callback</strong></li>
+                    </ul>
+                    <p class="mt-3"><strong>Exemplos que usam OOB:</strong> XXE OOB, Blind SSRF DNS, Log4Shell</p>
+                    <span class="badge badge-critical">Impossível falso positivo sem vulnerabilidade real</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Verificações múltiplas -->
+   <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark border-bottom border-warning">
+                    <h3 class="mb-0">2. Verificações duplas / triplas (body + status + tempo + OOB)</h3>
+                </div>
+                <div class="card-body">
+                    <pre><code class="language-java">boolean is200 = status == 200;
+boolean bodyMatch = checks != null && Arrays.stream(checks).anyMatch(response::contains);
+boolean timeBased = duration > 4500 && (checks == null || checks.length == 0);
+
+if ((is200 && expect200) || bodyMatch || timeBased) {
+    v.setResult("VULNERABLE");
+}</code></pre>
+                    <p><strong>Exemplos concretos:</strong></p>
+                    <ul>
+                        <li>Path Traversal → procura <code>root:</code>, <code>[extensions]</code></li>
+                        <li>Command Injection → procura <code>uid=</code>, <code>www-data</code></li>
+                        <li>SQLi Time-based → só marca se demorar &gt; 4.5s</li>
+                    </ul>
+                    <strong>Não basta dar 200 → precisa de prova real no corpo ou tempo</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. DOM XSS -->
+   <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark border-bottom border-secondary">
+                    <h3 class="mb-0">3. DOM XSS – o único que parece “frágil”, mas não é no contexto</h3>
+                </div>
+                <div class="card-body">
+                    <pre><code class="language-java">String payload = "#<img src=x onerror=alert(document.domain)>";
+if (v.getHttpStatus() == 200) {
+    v.setResult("VULNERABLE");
+}</code></pre>
+                    <p>Comentário do autor:</p>
+                    <pre><code class="language-java">// DOM XSS 100% FUNCIONAL NO LAB QUE VOCÊ MANDOU</code></pre>
+                    <p>Feito exclusivamente para o lab PortSwigger → lá só funciona se for DOM-XSS real.<br>
+                    Em alvo real pode gerar ruído, mas não é o foco do scanner.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Sanitização URL -->
+   <div class="col-12 col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-dark">
+                    <h5>4. Sanitização + Normalização de URL</h5>
+                </div>
+                <div class="card-body">
+                    <pre><code class="language-java">private String sanitizeUrl(String url) {
+    return new URI(url).normalize().toString();
+}</code></pre>
+                    <p>Bloqueia truques como:</p>
+                    <code>http://127.0.0.1:80@@google.com</code><br>
+                    <code>http://example.com/.*/admin</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Relatório seguro -->
+   <div class="col-12 col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-dark">
+                    <h5>5. Relatório com OWASP Encoder</h5>
+                </div>
+                <div class="card-body">
+                    <pre><code class="language-java">Encode.forHtml(v.getTargetUrl())</code></pre>
+                    <p>O próprio relatório nunca vira vetor de XSS, mesmo com payloads maliciosos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Limites rígidos -->
+  <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h5>6. Limites rígidos (anti-DoS e anti-ban)</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li>MAX_RESPONSE_SIZE = 15 KB → evita respostas gigantes</li>
+                        <li>Request delay padrão 600 ms → não leva ban por rate-limit</li>
+                        <li>Timeouts curtos → não fica pendurado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela final -->
+   <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h3>Conclusão: Por que é quase à prova de bypass em Bug Bounty</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Por que não dá falso positivo fácil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>OOB real (DNS/HTTP callback)</td><td>Só marca se o servidor do alvo ligar de volta</td></tr>
+                            <tr><td>Verificação de conteúdo exato</td><td>Procura <code>uid=</code>, <code>root:</code>, <code>AccessKeyId</code> etc</td></tr>
+                            <tr><td>Combinação de sinais</td><td>200 + conteúdo + tempo + OOB</td></tr>
+                            <tr><td>Payloads bem escolhidos</td><td>Clássicos que vazam conteúdo interno real</td></tr>
+                            <tr><td>Normalização de URI</td><td>Impede truques de SSRF/open redirect</td></tr>
+                            <tr><td>Relatório escapado</td><td>O report nunca vira vetor de ataque</td></tr>
+                        </tbody>
+                    </table>
+
+   <div class="alert alert-success mt-4">
+                        <h4>Resumo final</h4>
+                        <p class="mb-0 fw-bold">
+                            Esse scanner só marca “VULNERABLE” quando tem <u>prova concreta irrefutável</u> (callback OOB ou vazamento de conteúdo interno).<br>
+                            Por isso ele tem <strong>quase zero falsos positivos</strong> — quando ele diz que achou, pode mandar o report direto pro HackerOne.<br><br>
+                            Se alguém tentar forçar um falso positivo… vai acabar explorando a vulnerabilidade de verdade. Aí já não é mais falso, né? 😏
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
 <h1>Video:</h1>
 <p>clica para assistir no YouTuber</p>
 
