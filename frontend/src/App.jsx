@@ -2,6 +2,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
+import HackerNotifications from "./components/HackerNotifications"; 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Vulnerabilities from "./pages/Vulnerabilities";
@@ -23,7 +24,13 @@ export default function App() {
 
   return (
     <>
-      {user && <Navbar />}
+      {/* Navbar + Notificações (apenas se logado) */}
+      {user && (
+        <>
+          <Navbar />
+          <HackerNotifications /> {/* ← NOTIFICAÇÕES AUTOMÁTICAS */}
+        </>
+      )}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -32,6 +39,7 @@ export default function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
+        {/* Rotas Protegidas */}
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/vulnerabilities" element={<Vulnerabilities />} />
@@ -39,6 +47,7 @@ export default function App() {
           <Route path="/mfa/setup" element={<MFASetup />} />
         </Route>
 
+        {/* 404 */}
         <Route path="*" element={<Navigate to={user ? "/dashboard" : "/"} replace />} />
       </Routes>
     </>

